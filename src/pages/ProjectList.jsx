@@ -16,10 +16,10 @@ function ProjectList({ projects, onSelectProject }) {
             className="project-card"
             key={project.id}
             type="button"
-            onClick={() => onSelectProject(project.id)}
+            onClick={() => onSelectProject(project.slug)}
           >
             <span className="project-card__meta">
-              {project.tags.slice(0, 2).join(" / ")}
+              {[project.award, ...project.tags.slice(0, 1)].join(" / ")}
             </span>
             <strong>{project.title}</strong>
             <span>{project.summary}</span>

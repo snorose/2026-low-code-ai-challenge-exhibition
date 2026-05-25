@@ -1,7 +1,5 @@
-export const projects = [
+const projects = [
   {
-    id: "smart-docent-ai",
-    title: "스마트 전시 도슨트 AI",
     subtitle:
       "관람객의 관심사와 동선에 맞춰 전시 작품을 쉽게 설명하는 저코드 AI 서비스",
     summary:
@@ -35,34 +33,6 @@ export const projects = [
           "작품 설명, FAQ, 추천 문구를 폼 기반 관리 화면에서 빠르게 수정할 수 있습니다.",
       },
     ],
-    demo: {
-      title: "데모 영상 준비 중",
-      description:
-        "추후 유튜브 링크를 연결하면 이 영역에 영상 임베드 또는 썸네일이 표시될 예정입니다.",
-    },
-    members: [
-      {
-        name: "김하린",
-        role: "PM / 서비스 기획",
-        description: "사용자 흐름과 전시 운영 시나리오를 설계했습니다.",
-      },
-      {
-        name: "박준서",
-        role: "AI 플로우 설계",
-        description:
-          "작품 데이터 기반 응답 구조와 프롬프트 정책을 구성했습니다.",
-      },
-      {
-        name: "이서윤",
-        role: "Frontend",
-        description: "모바일 관람 화면과 관리자 입력 화면의 UI를 구현했습니다.",
-      },
-      {
-        name: "최민재",
-        role: "UX Research",
-        description: "관람객 인터뷰와 문제 정의, 테스트 피드백을 담당했습니다.",
-      },
-    ],
     references: [
       "전시 관람객 인터뷰 요약 리포트",
       "국립현대미술관 온라인 전시 해설 사례",
@@ -71,8 +41,6 @@ export const projects = [
     ],
   },
   {
-    id: "learning-care-bot",
-    title: "학습 케어 챗봇",
     subtitle:
       "학생의 학습 기록을 분석해 복습 계획과 질문 답변을 제공하는 AI 튜터",
     summary:
@@ -102,27 +70,6 @@ export const projects = [
         description: "개인별 목표와 진도에 맞춰 복습 알림을 보냅니다.",
       },
     ],
-    demo: {
-      title: "데모 영상 준비 중",
-      description: "실제 시연 영상의 유튜브 링크를 추후 연결할 예정입니다.",
-    },
-    members: [
-      {
-        name: "정다은",
-        role: "PM",
-        description: "학습 시나리오와 사용자 요구사항을 정리했습니다.",
-      },
-      {
-        name: "윤태호",
-        role: "Frontend",
-        description: "학생용 챗봇 화면과 교사용 대시보드를 구성했습니다.",
-      },
-      {
-        name: "한소민",
-        role: "AI 설계",
-        description: "학습 자료 검색과 답변 흐름을 설계했습니다.",
-      },
-    ],
     references: [
       "학습자 인터뷰 노트",
       "오답 유형 분류표",
@@ -130,8 +77,6 @@ export const projects = [
     ],
   },
   {
-    id: "local-market-helper",
-    title: "전통시장 운영 도우미",
     subtitle:
       "상인이 상품 홍보 문구와 재고 알림을 쉽게 관리하는 저코드 자동화 도구",
     summary:
@@ -163,27 +108,6 @@ export const projects = [
         description: "주간 인기 상품과 반복 구매 상품을 간단히 보여줍니다.",
       },
     ],
-    demo: {
-      title: "데모 영상 준비 중",
-      description: "추후 유튜브 링크 연결 시 영상 영역에 표시됩니다.",
-    },
-    members: [
-      {
-        name: "오지훈",
-        role: "기획",
-        description: "시장 상인 인터뷰와 문제 정의를 담당했습니다.",
-      },
-      {
-        name: "문채원",
-        role: "Design",
-        description: "모바일 입력 흐름과 시각 디자인을 구성했습니다.",
-      },
-      {
-        name: "서강우",
-        role: "Frontend",
-        description: "목록, 입력 폼, 리포트 화면을 구현했습니다.",
-      },
-    ],
     references: [
       "지역 상권 디지털 전환 사례",
       "상인 인터뷰 질문지",
@@ -191,3 +115,54 @@ export const projects = [
     ],
   },
 ];
+
+const awardTeams = [
+  { title: "Hicosong", slug: "hicosong", award: "Grand Prize" },
+  { title: "Sokeukeu", slug: "sokeukeu", award: "Top Excellence Award" },
+  { title: "FIT", slug: "fit", award: "Excellence Award" },
+  { title: "Nailgent", slug: "nailgent", award: "Excellence Award" },
+  { title: "SolarSystem", slug: "solarsystem", award: "Popularity Award" },
+  { title: "Sisam", slug: "sisam", award: "Effort Award" },
+  { title: "LOCOMOCO", slug: "locomoco", award: "Perfect Award" },
+];
+
+const members = [
+  {
+    name: "김하린",
+    role: "PM / 서비스 기획",
+    description: "사용자 흐름과 전시 운영 시나리오를 설계했습니다.",
+  },
+  {
+    name: "박준서",
+    role: "AI 플로우 설계",
+    description: "작품 데이터 기반 응답 구조와 프롬프트 정책을 구성했습니다.",
+  },
+  {
+    name: "이서윤",
+    role: "Frontend",
+    description: "모바일 관람 화면과 관리자 입력 화면의 UI를 구현했습니다.",
+  },
+  {
+    name: "최민재",
+    role: "UX Research",
+    description: "관람객 인터뷰와 문제 정의, 테스트 피드백을 담당했습니다.",
+  },
+];
+
+export const projectRoutes = awardTeams.map((team, index) => {
+  const template = projects[index % projects.length];
+
+  return {
+    ...template,
+    id: team.slug,
+    slug: team.slug,
+    title: team.title,
+    award: team.award,
+    demo: {
+      title: "데모 영상 준비 중",
+      description:
+        "추후 유튜브 링크를 연결하면 이 영역에 영상 임베드 또는 썸네일이 표시될 예정입니다.",
+    },
+    members,
+  };
+});
