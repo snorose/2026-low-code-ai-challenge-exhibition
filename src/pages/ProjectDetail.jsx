@@ -2,9 +2,13 @@ import heroImg from "../assets/hero.png";
 
 function ProjectDetail({ project, onBack }) {
   const sections = [
-    { eyebrow: "Overview", title: "📌 프로젝트 소개", body: project.intro },
+    {
+      eyebrow: "Project Detail",
+      title: "📌 프로젝트 상세",
+      body: project.intro,
+    },
     { eyebrow: "Problem", title: "🧐 문제 정의", body: project.problem },
-    { eyebrow: "Solution", title: "💡 문제 해결", body: project.solution },
+    { eyebrow: "Solution", title: "💡 해결", body: project.solution },
   ];
 
   return (
@@ -54,15 +58,13 @@ function ProjectDetail({ project, onBack }) {
       </section>
 
       <section
-        className="grid grid-cols-1 border-b border-[var(--border)] min-[901px]:grid-cols-3"
+        className="grid grid-cols-1 border-b border-[var(--border)]"
         aria-label="프로젝트 핵심 설명"
       >
         {sections.map((section, index) => (
           <article
             className={`box-border border-b border-[var(--border)] px-5 py-7 min-[561px]:px-6 min-[561px]:py-8 min-[901px]:px-8 min-[901px]:py-10 ${
-              index < sections.length - 1
-                ? "min-[901px]:border-r"
-                : "border-b-0 min-[901px]:border-r-0"
+              index === sections.length - 1 ? "border-b-0" : ""
             }`}
             key={section.title}
           >
