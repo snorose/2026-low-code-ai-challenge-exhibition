@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { projectRoutes } from "./data/projects";
 import ProjectDetail from "./pages/ProjectDetail";
 import ProjectList from "./pages/ProjectList";
-import "./App.css";
 
 const getProjectSlugFromPath = () => {
   const [, basePath, projectSlug] = window.location.pathname.split("/");
