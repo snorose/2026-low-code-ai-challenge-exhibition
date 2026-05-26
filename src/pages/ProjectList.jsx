@@ -59,7 +59,7 @@ function ProjectList({ projects, onSelectProject }) {
           <h2 className="m-0 text-2xl font-bold text-(--text-h) min-[561px]:text-3xl">
             프로젝트 라인업
           </h2>
-          <p className="text-xs min-[901px]:text-sm text-(--text)">
+          <p className="text-sm min-[901px]:text-base text-(--text)">
             카드 상세보기를 클릭하여 팀 프로젝트의 자세한 여정을 살펴보세요.
           </p>
         </div>
@@ -68,7 +68,7 @@ function ProjectList({ projects, onSelectProject }) {
           {projects.map((project) => (
             <article
               key={project.id}
-              className="group flex flex-col rounded-xl border border-slate-100 bg-white p-6 text-left transition-all duration-300 hover:-translate-y-1 hover:shadow-xl dark:border-slate-800 dark:bg-[#14151e] shadow-sm"
+              className="group flex flex-col rounded-xl border border-slate-100 bg-white p-6 text-left shadow-sm transition-all duration-500 ease-out hover:-translate-y-0.5 hover:shadow-lg dark:border-slate-800 dark:bg-[#14151e]"
             >
               <div className="mb-3.5 flex flex-wrap items-center justify-between gap-2">
                 <span
@@ -76,12 +76,12 @@ function ProjectList({ projects, onSelectProject }) {
                 >
                   {getAwardLabelKo(project.award)}
                 </span>
-                <span className="rounded-full bg-slate-50 px-2 py-0.5 text-xs min-[901px]:text-sm font-semibold text-slate-500 dark:bg-slate-800 dark:text-slate-400">
+                <span className="rounded-full bg-slate-100 px-2 py-0.5 text-xs min-[901px]:text-sm font-bold text-slate-700 dark:bg-slate-800 dark:text-slate-200">
                   {project.tags[0]}
                 </span>
               </div>
 
-              <h3 className="m-0 mb-2.5 text-lg font-bold leading-[1.3] text-(--text-h) group-hover:text-(--accent) transition-colors">
+              <h3 className="m-0 mb-2.5 text-lg font-bold leading-[1.3] text-(--text-h) transition-colors duration-500 ease-out group-hover:text-(--accent)">
                 {project.title}
               </h3>
               <p className="mb-5 text-[13.5px] min-[901px]:text-sm leading-[1.6] text-(--text) line-clamp-3">
@@ -92,7 +92,7 @@ function ProjectList({ projects, onSelectProject }) {
                 {project.tags.slice(1, 3).map((tag) => (
                   <span
                     key={tag}
-                    className="text-xs min-[901px]:text-sm text-indigo-500 font-semibold dark:text-indigo-400"
+                    className="text-xs min-[901px]:text-sm text-indigo-700 font-bold dark:text-indigo-300"
                   >
                     #{tag}
                   </span>
@@ -102,10 +102,10 @@ function ProjectList({ projects, onSelectProject }) {
               <button
                 type="button"
                 onClick={() => onSelectProject(project.slug)}
-                className="mt-4 flex w-full cursor-pointer items-center justify-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 py-2.5 text-sm font-semibold text-(--text-h) transition-all group-hover:bg-[#c1d0ff] group-hover:text-black group-hover:border-[#c1d0ff] focus:outline-none dark:bg-[#1a1c2d] dark:border-slate-800"
+                className="mt-4 flex w-full cursor-pointer items-center justify-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 py-2.5 text-sm font-semibold text-(--text-h) transition-all duration-500 ease-out group-hover:bg-[#c1d0ff] group-hover:text-black group-hover:border-[#c1d0ff] focus:outline-none dark:bg-[#1a1c2d] dark:border-slate-800"
               >
                 상세 보기
-                <ArrowRight className="h-4 w-4 transform transition-transform group-hover:translate-x-1" />
+                <ArrowRight className="h-4 w-4 transform transition-transform duration-500 ease-out group-hover:translate-x-0.5" />
               </button>
             </article>
           ))}

@@ -93,7 +93,7 @@ function ProjectDetail({ project, onBack }) {
             >
               {project.tags.map((tag) => (
                 <span
-                  className="inline-flex min-h-8 items-center rounded-full border border-slate-200 bg-white px-3.5 py-0.5 text-xs min-[901px]:text-sm font-semibold text-(--text-h) dark:bg-[#1a1c2d] dark:border-slate-800"
+                  className="inline-flex min-h-8 items-center rounded-full border border-slate-300 bg-slate-50 px-3.5 py-0.5 text-xs min-[901px]:text-sm font-bold text-slate-800 dark:bg-[#1a1c2d] dark:border-slate-700 dark:text-slate-100"
                   key={tag}
                 >
                   #{tag}
@@ -103,7 +103,7 @@ function ProjectDetail({ project, onBack }) {
           </div>
 
           <div className="flex justify-center min-[901px]:justify-end">
-            <div className="group relative w-full max-w-72 transform transition-all duration-500 hover:scale-102">
+            <div className="group relative w-full max-w-72 transform transition-all duration-500 ease-out hover:scale-[1.01]">
               <ProjectPoster
                 title={project.title}
                 award={project.award}
@@ -120,7 +120,7 @@ function ProjectDetail({ project, onBack }) {
       >
         {sections.map((section) => (
           <article
-            className={`box-border flex flex-col rounded-xl border border-slate-100 p-6 shadow-sm transition-all hover:shadow-md dark:border-slate-800 ${section.bgClass}`}
+            className={`box-border flex flex-col rounded-xl border border-slate-100 p-6 shadow-sm transition-all duration-500 ease-out hover:-translate-y-0.5 hover:shadow-md dark:border-slate-800 ${section.bgClass}`}
             key={section.title}
           >
             <div className="mb-3.5 flex items-center justify-between">
@@ -161,14 +161,14 @@ function ProjectDetail({ project, onBack }) {
         <div className="grid grid-cols-1 gap-6 min-[901px]:grid-cols-2">
           {project.features.map((feature, idx) => (
             <article
-              className="group box-border rounded-xl border border-slate-100 bg-white p-6 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md dark:bg-[#14151e] dark:border-slate-800 shadow-sm"
+              className="group box-border rounded-xl border border-slate-100 bg-white p-6 shadow-sm transition-all duration-500 ease-out hover:-translate-y-0.5 hover:shadow-md dark:bg-[#14151e] dark:border-slate-800"
               key={feature.title}
             >
               <div className="mb-3 flex items-center gap-3">
                 <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#c1d0ff]/70 text-xs min-[901px]:text-sm font-bold text-indigo-950">
                   {idx + 1}
                 </span>
-                <h3 className="m-0 text-base font-bold text-(--text-h) group-hover:text-indigo-500 transition-colors">
+                <h3 className="m-0 text-base font-bold text-(--text-h) transition-colors duration-500 ease-out group-hover:text-indigo-500">
                   {feature.title}
                 </h3>
               </div>
@@ -262,7 +262,7 @@ function ProjectDetail({ project, onBack }) {
         <div className="grid grid-cols-1 gap-6 min-[561px]:grid-cols-2">
           {project.members.map((member) => (
             <article
-              className="box-border flex flex-col items-start gap-4 rounded-xl border border-slate-100 bg-white p-6 shadow-sm transition-all hover:shadow-md dark:bg-[#14151e] dark:border-slate-800"
+              className="box-border flex flex-col items-start gap-4 rounded-xl border border-slate-100 bg-white p-6 shadow-sm transition-all duration-500 ease-out hover:-translate-y-0.5 hover:shadow-md dark:bg-[#14151e] dark:border-slate-800"
               key={member.name}
             >
               <div className="flex items-center gap-4">
@@ -311,14 +311,14 @@ function ProjectDetail({ project, onBack }) {
             href={project.references?.ppt || "#"}
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex items-center justify-between rounded-xl border border-slate-100 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md hover:border-indigo-200 dark:bg-[#14151e] dark:border-slate-800 dark:hover:border-indigo-900/50"
+            className="group flex items-center justify-between rounded-xl border border-slate-100 bg-white p-5 shadow-sm transition-all duration-500 ease-out hover:-translate-y-0.5 hover:shadow-md hover:border-indigo-200 dark:bg-[#14151e] dark:border-slate-800 dark:hover:border-indigo-900/50"
           >
             <div className="flex items-center gap-4">
-              <span className="grid h-10 w-10 place-items-center rounded-xl bg-orange-50 text-orange-500 dark:bg-orange-950/20 dark:text-orange-400 group-hover:scale-105 transition-transform">
+              <span className="grid h-10 w-10 place-items-center rounded-xl bg-orange-50 text-orange-500 transition-transform duration-500 ease-out group-hover:scale-[1.03] dark:bg-orange-950/20 dark:text-orange-400">
                 <Presentation className="h-5 w-5" aria-hidden="true" />
               </span>
               <div>
-                <h3 className="m-0 text-sm font-bold text-(--text-h) group-hover:text-indigo-500 dark:group-hover:text-indigo-400 transition-colors">
+                <h3 className="m-0 text-sm font-bold text-(--text-h) transition-colors duration-500 ease-out group-hover:text-indigo-500 dark:group-hover:text-indigo-400">
                   PPT 발표 자료
                 </h3>
                 <p className="mt-0.5 text-xs min-[901px]:text-sm text-(--text)">
@@ -326,21 +326,21 @@ function ProjectDetail({ project, onBack }) {
                 </p>
               </div>
             </div>
-            <ExternalLink className="h-4 w-4 text-slate-400 dark:text-slate-500 group-hover:translate-x-0.5 transition-transform" />
+            <ExternalLink className="h-4 w-4 text-slate-400 transition-transform duration-500 ease-out group-hover:translate-x-0.5 dark:text-slate-500" />
           </a>
 
           <a
             href={project.references?.deploy || "#"}
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex items-center justify-between rounded-xl border border-slate-100 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md hover:border-indigo-200 dark:bg-[#14151e] dark:border-slate-800 dark:hover:border-indigo-900/50"
+            className="group flex items-center justify-between rounded-xl border border-slate-100 bg-white p-5 shadow-sm transition-all duration-500 ease-out hover:-translate-y-0.5 hover:shadow-md hover:border-indigo-200 dark:bg-[#14151e] dark:border-slate-800 dark:hover:border-indigo-900/50"
           >
             <div className="flex items-center gap-4">
-              <span className="grid h-10 w-10 place-items-center rounded-xl bg-indigo-50 text-indigo-500 dark:bg-indigo-950/20 dark:text-indigo-400 group-hover:scale-105 transition-transform">
+              <span className="grid h-10 w-10 place-items-center rounded-xl bg-indigo-50 text-indigo-500 transition-transform duration-500 ease-out group-hover:scale-[1.03] dark:bg-indigo-950/20 dark:text-indigo-400">
                 <Globe className="h-5 w-5" aria-hidden="true" />
               </span>
               <div>
-                <h3 className="m-0 text-sm font-bold text-(--text-h) group-hover:text-indigo-500 dark:group-hover:text-indigo-400 transition-colors">
+                <h3 className="m-0 text-sm font-bold text-(--text-h) transition-colors duration-500 ease-out group-hover:text-indigo-500 dark:group-hover:text-indigo-400">
                   서비스 배포 링크
                 </h3>
                 <p className="mt-0.5 text-xs min-[901px]:text-sm text-(--text)">
@@ -348,7 +348,7 @@ function ProjectDetail({ project, onBack }) {
                 </p>
               </div>
             </div>
-            <ExternalLink className="h-4 w-4 text-slate-400 dark:text-slate-500 group-hover:translate-x-0.5 transition-transform" />
+            <ExternalLink className="h-4 w-4 text-slate-400 transition-transform duration-500 ease-out group-hover:translate-x-0.5 dark:text-slate-500" />
           </a>
         </div>
       </section>
