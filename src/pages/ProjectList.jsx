@@ -1,46 +1,106 @@
-import heroImg from "../assets/hero.png";
+import { getAwardStyle, getAwardLabelKo } from "../utils/award";
+import snoroseLogo from "../assets/snorose-logo.svg";
+import upstageLogo from "../assets/upstage-logo.svg";
 
 function ProjectList({ projects, onSelectProject }) {
   return (
-    <main className="mx-auto w-full max-w-[1126px] text-left">
-      <section
-        className="border-b border-[var(--border)] bg-slate-50 px-5 pt-11 pb-8 min-[561px]:bg-[position:right_20px_top_24px] min-[561px]:bg-[length:104px_auto] min-[901px]:px-14 min-[901px]:pt-[72px] min-[901px]:pb-11 min-[901px]:bg-[position:right_56px_center] min-[901px]:bg-[length:180px_auto] dark:bg-[#16171d] min-[561px]:px-7 min-[561px]:pt-14 min-[561px]:pb-9 min-[561px]:bg-[position:right_28px_top_28px] min-[561px]:bg-[length:130px_auto]"
-        style={{
-          backgroundImage: `linear-gradient(color-mix(in srgb, var(--bg) 76%, transparent), color-mix(in srgb, var(--bg) 96%, transparent)), url(${heroImg})`,
-          backgroundRepeat: "no-repeat",
-        }}
-      >
-        <p className="mb-3 text-sm leading-[1.3] font-bold tracking-normal text-teal-700 uppercase">
-          2026 Low-Code AI Challenge Exhibition
-        </p>
-        <h1>프로젝트 목록</h1>
-        <p className="max-w-[720px] text-[19px] leading-[1.7]">
-          전시 프로젝트를 선택하면 상세 페이지에서 소개, 문제 정의, 해결 방식,
-          핵심 기능, 데모 영상, 팀원, 참고 자료를 확인할 수 있습니다.
-        </p>
+    <main className="mx-auto w-full text-left relative overflow-hidden">
+      <section className="relative overflow-hidden border-b border-(--border) bg-[#c1d0ff] text-black p-8 py-16 min-[561px]:p-16 min-[561px]:py-22 min-[901px]:p-20 min-[901px]:py-26 flex flex-col justify-center select-none">
+        <div className="relative z-10 max-w-220 flex flex-col items-start gap-5">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-white/60 px-3.5 py-1 text-xs font-bold tracking-widest text-slate-800 uppercase">
+            2026 LOW-CODE AI CHALLENGE EXHIBITION
+          </span>
+
+          <h1 className="m-0 text-5xl font-black tracking-tighter text-black min-[561px]:text-6xl min-[901px]:text-7xl leading-none font-nats">
+            2026 Low-Code <br />
+            <span className="uppercase block mt-1 tracking-tight">
+              AI CHALLENGE
+            </span>
+          </h1>
+
+          <p className="max-w-175 text-sm leading-[1.7] text-slate-800 font-medium word-break-keep-all">
+            저코드(Low-Code)와 최신 AI 기술을 결합하여 창의적인 디지털 혁신을
+            보여준 수상 팀들의 프로젝트 전시관입니다. 카드를 선택해 상세한 문제
+            정의와 기술적 해결 방안, 데모 영상과 팀원들의 이야기를 확인해보세요.
+          </p>
+
+          <div className="mt-4 flex flex-wrap items-center gap-5 sm:gap-6">
+            <img
+              src={snoroseLogo}
+              alt="스노로즈 로고"
+              className="h-5 min-[561px]:h-6 w-auto object-contain brightness-95 contrast-125 select-none"
+            />
+            <div className="h-3 w-px bg-black/20 self-center"></div>
+            <img
+              src={upstageLogo}
+              alt="업스테이지 로고"
+              className="h-5 min-[561px]:h-6 w-auto object-contain select-none"
+            />
+          </div>
+        </div>
       </section>
 
       <section
-        className="grid grid-cols-1 gap-[18px] p-5 min-[561px]:p-6 min-[901px]:grid-cols-3 min-[901px]:p-8"
-        aria-label="프로젝트 목록"
+        className="box-border p-5 min-[561px]:p-8 min-[901px]:p-12"
+        aria-label="프로젝트 전시회 라인업"
       >
-        {projects.map((project) => (
-          <button
-            className="flex min-h-0 cursor-pointer flex-col items-start gap-4 rounded-lg border border-[var(--border)] bg-white p-5 text-left font-[inherit] text-[var(--text)] transition duration-200 ease-in-out hover:-translate-y-0.5 hover:border-teal-300 hover:shadow-[var(--shadow)] focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-blue-600/35 min-[561px]:min-h-[260px] min-[561px]:p-6 dark:bg-[#1f2028]"
-            key={project.id}
-            type="button"
-            onClick={() => onSelectProject(project.slug)}
-          >
-            <span className="text-sm font-bold text-teal-700">
-              {[project.award, ...project.tags.slice(0, 1)].join(" / ")}
-            </span>
-            <strong className="text-2xl leading-[1.3] text-[var(--text-h)]">
-              {project.title}
-            </strong>
-            <span className="leading-[1.65]">{project.summary}</span>
-            <span className="mt-auto font-bold text-blue-600">상세 보기</span>
-          </button>
-        ))}
+        <div className="mb-6 flex flex-col gap-1.5">
+          <h2 className="m-0 text-2xl font-bold text-(--text-h) min-[561px]:text-3xl">
+            프로젝트 라인업
+          </h2>
+          <p className="text-xs text-(--text)">
+            카드 상세보기를 클릭하여 팀 프로젝트의 자세한 여정을 살펴보세요.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 gap-6 min-[561px]:grid-cols-2 min-[901px]:grid-cols-3">
+          {projects.map((project) => (
+            <article
+              key={project.id}
+              className="group flex flex-col rounded-xl border border-slate-100 bg-white p-6 text-left transition-all duration-300 hover:-translate-y-1 hover:shadow-xl dark:border-slate-800 dark:bg-[#14151e] shadow-sm"
+            >
+              <div className="mb-3.5 flex flex-wrap items-center justify-between gap-2">
+                <span
+                  className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-bold ${getAwardStyle(project.award)}`}
+                >
+                  {getAwardLabelKo(project.award)}
+                </span>
+                <span className="rounded-full bg-slate-50 px-2 py-0.5 text-xs font-semibold text-slate-500 dark:bg-slate-800 dark:text-slate-400">
+                  {project.tags[0]}
+                </span>
+              </div>
+
+              <h3 className="m-0 mb-2.5 text-lg font-bold leading-[1.3] text-(--text-h) group-hover:text-(--accent) transition-colors">
+                {project.title}
+              </h3>
+              <p className="mb-5 text-[13.5px] leading-[1.6] text-(--text) line-clamp-3">
+                {project.summary}
+              </p>
+
+              <div className="mt-auto flex flex-wrap gap-1.5">
+                {project.tags.slice(1, 3).map((tag) => (
+                  <span
+                    key={tag}
+                    className="text-xs text-indigo-500 font-semibold dark:text-indigo-400"
+                  >
+                    #{tag}
+                  </span>
+                ))}
+              </div>
+
+              <button
+                type="button"
+                onClick={() => onSelectProject(project.slug)}
+                className="mt-4 flex w-full cursor-pointer items-center justify-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 py-2.5 text-sm font-semibold text-(--text-h) transition-all group-hover:bg-[#c1d0ff] group-hover:text-black group-hover:border-[#c1d0ff] focus:outline-none dark:bg-[#1a1c2d] dark:border-slate-800"
+              >
+                상세 보기{" "}
+                <span className="transform transition-transform group-hover:translate-x-1">
+                  →
+                </span>
+              </button>
+            </article>
+          ))}
+        </div>
       </section>
     </main>
   );
