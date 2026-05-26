@@ -1,17 +1,18 @@
 import { getAwardStyle, getAwardLabelKo } from "../utils/award";
 import snoroseLogo from "../assets/snorose-logo.svg";
 import upstageLogo from "../assets/upstage-logo.svg";
+import { ArrowRight } from "lucide-react";
 
 function ProjectList({ projects, onSelectProject }) {
   return (
     <main className="mx-auto w-full text-left relative overflow-hidden">
       <section className="relative overflow-hidden border-b border-(--border) bg-[#c1d0ff] text-black p-8 py-16 min-[561px]:p-16 min-[561px]:py-22 min-[901px]:p-20 min-[901px]:py-26 flex flex-col justify-center select-none">
-        <div className="relative z-10 max-w-220 flex flex-col items-start gap-5">
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-white/60 px-3.5 py-1 text-xs font-bold tracking-widest text-slate-800 uppercase">
+        <div className="relative z-10 max-w-220 flex flex-col items-start gap-5 w-full">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-white/60 px-4 py-1.5 text-xs min-[901px]:text-sm font-bold tracking-widest text-slate-800 uppercase">
             2026 LOW-CODE AI CHALLENGE EXHIBITION
           </span>
 
-          <h1 className="m-0 text-5xl font-black tracking-tighter text-black min-[561px]:text-6xl min-[901px]:text-7xl leading-none font-nats">
+          <h1 className="m-0 text-6xl font-black tracking-tighter text-black min-[561px]:text-7xl min-[901px]:text-8xl leading-none font-nats">
             2026 Low-Code <br />
             <span className="uppercase block mt-1 tracking-tight">
               AI CHALLENGE
@@ -19,23 +20,40 @@ function ProjectList({ projects, onSelectProject }) {
           </h1>
 
           <p className="max-w-175 text-sm leading-[1.7] text-slate-800 font-medium word-break-keep-all">
-            저코드(Low-Code)와 최신 AI 기술을 결합하여 창의적인 디지털 혁신을
-            보여준 수상 팀들의 프로젝트 전시관입니다. 카드를 선택해 상세한 문제
-            정의와 기술적 해결 방안, 데모 영상과 팀원들의 이야기를 확인해보세요.
+            Low-Code와 최신 AI 기술을 결합하여 창의적인 디지털 혁신을 보여준
+            수상 팀들의 프로젝트 전시관입니다.
+            <br />
+            카드를 선택해 상세한 문제 정의와 기술적 해결 방안, 데모 영상과
+            팀원들의 이야기를 확인해보세요.
           </p>
 
-          <div className="mt-4 flex flex-wrap items-center gap-5 sm:gap-6">
-            <img
-              src={snoroseLogo}
-              alt="스노로즈 로고"
-              className="h-5 min-[561px]:h-6 w-auto object-contain brightness-95 contrast-125 select-none"
-            />
-            <div className="h-3 w-px bg-black/20 self-center"></div>
-            <img
-              src={upstageLogo}
-              alt="업스테이지 로고"
-              className="h-5 min-[561px]:h-6 w-auto object-contain select-none"
-            />
+          <div className="mt-6 flex flex-wrap items-start min-[561px]:items-center gap-8 sm:gap-12 border-t border-black/10 pt-5 w-full">
+            <div className="flex flex-col gap-1 text-left">
+              <span className="text-[10px] font-bold tracking-wider text-slate-700/60 uppercase select-none">
+                주관
+              </span>
+              <span className="text-xs font-bold text-slate-800">
+                숙명여자대학교 SW중심대학사업단
+              </span>
+            </div>
+            <div className="flex flex-col gap-1 text-left">
+              <span className="text-[10px] font-bold tracking-wider text-slate-700/60 uppercase select-none">
+                파트너
+              </span>
+              <div className="flex items-center gap-4">
+                <img
+                  src={upstageLogo}
+                  alt="업스테이지 로고"
+                  className="h-4.5 w-auto object-contain select-none"
+                />
+                <div className="h-3 w-px bg-black/10"></div>
+                <img
+                  src={snoroseLogo}
+                  alt="스노로즈 로고"
+                  className="h-4.5 w-auto object-contain brightness-95 contrast-125 select-none"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -93,10 +111,8 @@ function ProjectList({ projects, onSelectProject }) {
                 onClick={() => onSelectProject(project.slug)}
                 className="mt-4 flex w-full cursor-pointer items-center justify-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 py-2.5 text-sm font-semibold text-(--text-h) transition-all group-hover:bg-[#c1d0ff] group-hover:text-black group-hover:border-[#c1d0ff] focus:outline-none dark:bg-[#1a1c2d] dark:border-slate-800"
               >
-                상세 보기{" "}
-                <span className="transform transition-transform group-hover:translate-x-1">
-                  →
-                </span>
+                상세 보기
+                <ArrowRight className="h-4 w-4 transform transition-transform group-hover:translate-x-1" />
               </button>
             </article>
           ))}
