@@ -7,19 +7,12 @@ function ProjectList({ projects, onSelectProject }) {
   return (
     <main className="mx-auto w-full text-left relative">
       <section className="full-bleed relative overflow-hidden border-b border-(--border) bg-[#c1d0ff] text-black px-8 py-16 min-[561px]:px-16 min-[561px]:py-22 min-[901px]:px-20 min-[901px]:py-26 flex flex-col justify-center select-none">
-        <div className="relative z-10 mx-auto max-w-(--layout-max-width) flex flex-col items-start gap-5 w-full">
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-white/60 px-4 py-1.5 text-xs min-[901px]:text-sm font-bold tracking-widest text-slate-800 uppercase">
-            2026 LOW-CODE AI CHALLENGE EXHIBITION
-          </span>
-
-          <h1 className="m-0 text-6xl font-black tracking-tighter text-black min-[561px]:text-7xl min-[901px]:text-8xl leading-none font-nats">
-            2026 Low-Code <br />
-            <span className="uppercase block mt-1 tracking-tight">
-              AI CHALLENGE
-            </span>
+        <div className="relative z-10 flex w-full max-w-none flex-col items-start gap-5">
+          <h1 className="m-0 whitespace-nowrap text-[clamp(2.75rem,8vw,6rem)] font-black tracking-tighter text-black leading-none font-nats">
+            2026 Low-Code AI CHALLENGE
           </h1>
 
-          <p className="max-w-175 text-sm leading-[1.7] text-slate-800 font-medium word-break-keep-all">
+          <p className="text-base min-[901px]:text-lg leading-[1.7] text-slate-800 font-medium word-break-keep-all">
             Low-Code와 최신 AI 기술을 결합하여 창의적인 디지털 혁신을 보여준
             수상 팀들의 프로젝트 전시관입니다.
             <br />
@@ -29,22 +22,22 @@ function ProjectList({ projects, onSelectProject }) {
 
           <div className="mt-6 flex flex-wrap items-start min-[561px]:items-center gap-8 sm:gap-12 border-t border-black/10 pt-5 w-full">
             <div className="flex flex-col gap-1 text-left">
-              <span className="text-[10px] font-bold tracking-wider text-slate-700/60 uppercase select-none">
+              <span className="text-xs min-[901px]:text-base font-bold tracking-wider text-slate-700/60 uppercase select-none">
                 주관
               </span>
-              <span className="text-xs font-bold text-slate-800">
+              <span className="text-sm min-[901px]:text-base font-bold text-slate-800">
                 숙명여자대학교 SW중심대학사업단
               </span>
             </div>
             <div className="flex flex-col gap-1 text-left">
-              <span className="text-[10px] font-bold tracking-wider text-slate-700/60 uppercase select-none">
+              <span className="text-xs min-[901px]:text-base font-bold tracking-wider text-slate-700/60 uppercase select-none">
                 파트너
               </span>
               <div className="flex items-center gap-4">
                 <img
                   src={upstageLogo}
                   alt="업스테이지 로고"
-                  className="h-4.5 w-auto object-contain select-none"
+                  className="h-7 w-auto object-contain select-none"
                 />
                 <div className="h-3 w-px bg-black/10"></div>
                 <img
@@ -66,7 +59,7 @@ function ProjectList({ projects, onSelectProject }) {
           <h2 className="m-0 text-2xl font-bold text-(--text-h) min-[561px]:text-3xl">
             프로젝트 라인업
           </h2>
-          <p className="text-xs text-(--text)">
+          <p className="text-xs min-[901px]:text-sm text-(--text)">
             카드 상세보기를 클릭하여 팀 프로젝트의 자세한 여정을 살펴보세요.
           </p>
         </div>
@@ -79,11 +72,11 @@ function ProjectList({ projects, onSelectProject }) {
             >
               <div className="mb-3.5 flex flex-wrap items-center justify-between gap-2">
                 <span
-                  className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-bold ${getAwardStyle(project.award)}`}
+                  className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs min-[901px]:text-sm font-bold ${getAwardStyle(project.award)}`}
                 >
                   {getAwardLabelKo(project.award)}
                 </span>
-                <span className="rounded-full bg-slate-50 px-2 py-0.5 text-xs font-semibold text-slate-500 dark:bg-slate-800 dark:text-slate-400">
+                <span className="rounded-full bg-slate-50 px-2 py-0.5 text-xs min-[901px]:text-sm font-semibold text-slate-500 dark:bg-slate-800 dark:text-slate-400">
                   {project.tags[0]}
                 </span>
               </div>
@@ -91,7 +84,7 @@ function ProjectList({ projects, onSelectProject }) {
               <h3 className="m-0 mb-2.5 text-lg font-bold leading-[1.3] text-(--text-h) group-hover:text-(--accent) transition-colors">
                 {project.title}
               </h3>
-              <p className="mb-5 text-[13.5px] leading-[1.6] text-(--text) line-clamp-3">
+              <p className="mb-5 text-[13.5px] min-[901px]:text-sm leading-[1.6] text-(--text) line-clamp-3">
                 {project.summary}
               </p>
 
@@ -99,7 +92,7 @@ function ProjectList({ projects, onSelectProject }) {
                 {project.tags.slice(1, 3).map((tag) => (
                   <span
                     key={tag}
-                    className="text-xs text-indigo-500 font-semibold dark:text-indigo-400"
+                    className="text-xs min-[901px]:text-sm text-indigo-500 font-semibold dark:text-indigo-400"
                   >
                     #{tag}
                   </span>
