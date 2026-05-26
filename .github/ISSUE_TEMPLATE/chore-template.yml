@@ -1,7 +1,7 @@
 name: 🧹 Chore Request
 description: 프로젝트 관리와 관련된 작업을 요청합니다.
-title: '[CHORE] '
-labels: ['🧹 Chore']
+title: "[CHORE] "
+labels: ["🧹 Chore"]
 body:
   - type: textarea
     id: background

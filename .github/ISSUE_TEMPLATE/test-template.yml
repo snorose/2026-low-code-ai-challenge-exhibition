@@ -1,7 +1,7 @@
 name: 🧪 Test Request
 description: 테스트 코드를 작성하거나 테스트 범위·시나리오를 제안합니다.
-title: '[TEST] '
-labels: ['🧪 Test']
+title: "[TEST] "
+labels: ["🧪 Test"]
 body:
   - type: input
     id: test_target

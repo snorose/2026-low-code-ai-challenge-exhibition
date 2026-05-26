@@ -4,7 +4,8 @@ import ProjectDetail from "./pages/ProjectDetail";
 import ProjectList from "./pages/ProjectList";
 
 function App() {
-  const { selectedProjectId, navigateToProject, navigateToList } = useProjectRouter();
+  const { selectedProjectId, navigateToProject, navigateToList } =
+    useProjectRouter();
 
   const selectedProject = projectRoutes.find(
     (project) => project.slug === selectedProjectId,
