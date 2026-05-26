@@ -47,33 +47,24 @@ function ProjectDetail({ project, onBack }) {
 
   return (
     <main className="mx-auto w-full text-left">
-      <div className="sticky top-0 z-3 border-b border-(--border) bg-white/80 px-4 py-3 backdrop-blur-md dark:bg-[#090a0f]/80 min-[561px]:px-8 flex items-center justify-between">
+      <section
+        className="box-border border-b border-(--border) bg-[linear-gradient(135deg,rgba(193,208,255,0.25)_0%,rgba(245,248,255,0.5)_100%)] p-6 pt-4 min-[561px]:p-10 min-[561px]:pt-6 min-[901px]:p-14 min-[901px]:pt-8"
+        aria-labelledby="project-title"
+      >
         <button
           type="button"
-          className="neo-btn-secondary py-1.5 px-4 text-xs min-[901px]:text-sm flex items-center gap-1.5"
+          className="neo-btn-secondary mb-8 py-1.5 px-4 text-xs min-[901px]:text-sm flex items-center gap-1.5"
           onClick={onBack}
         >
           <ArrowLeft className="h-3.5 w-3.5" />
           목록으로 가기
         </button>
-        <span className="hidden sm:inline-block text-xs min-[901px]:text-sm font-bold text-(--text-h) truncate max-w-100">
-          전시작: {project.title}
-        </span>
-        <span
-          className={`text-[11px] min-[901px]:text-sm font-bold uppercase px-2.5 py-0.5 rounded-full ${getAwardStyle(project.award)}`}
-        >
-          {getAwardLabelKo(project.award)}
-        </span>
-      </div>
-
-      <section
-        className="box-border border-b border-(--border) bg-[linear-gradient(135deg,rgba(193,208,255,0.25)_0%,rgba(245,248,255,0.5)_100%)] p-6 min-[561px]:p-10 min-[901px]:p-14"
-        aria-labelledby="project-title"
-      >
         <div className="relative z-1 grid grid-cols-1 gap-8 min-[901px]:grid-cols-[1.15fr_0.85fr] min-[901px]:items-center">
           <div className="max-w-205">
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-[#c1d0ff]/50 px-3 py-0.5 text-xs min-[901px]:text-sm font-bold text-indigo-950">
-              {project.award} Awarded
+            <span
+              className={`inline-flex items-center rounded-full px-3 py-1 text-sm min-[901px]:text-base font-bold ${getAwardStyle(project.award)}`}
+            >
+              {getAwardLabelKo(project.award)}
             </span>
             <h1
               id="project-title"
