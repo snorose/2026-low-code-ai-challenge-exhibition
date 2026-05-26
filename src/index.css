@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 :root {
+  --layout-max-width: 1126px;
   --text: #374151;
   --text-h: #111827;
   --bg: #ffffff;
@@ -65,15 +66,29 @@
 
 body {
   margin: 0;
+  min-width: 360px;
+  overflow-x: clip;
   background-color: var(--bg);
 }
 
+.full-bleed {
+  width: 100vw;
+  margin-inline: calc(50% - 50vw);
+  box-sizing: border-box;
+}
+
+@media (max-width: 360px) {
+  .full-bleed {
+    width: 360px;
+    margin-inline: calc(50% - 180px);
+  }
+}
+
 #root {
-  width: 1126px;
+  width: var(--layout-max-width);
   max-width: 100%;
   margin: 0 auto;
   text-align: center;
-  border-inline: 1px solid var(--border);
   min-height: 100svh;
   display: flex;
   flex-direction: column;
@@ -134,20 +149,6 @@ code {
   padding: 2px 5px;
   background: var(--code-bg);
   border: 1px solid var(--accent-border);
-}
-
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  background: var(--bg);
-}
-::-webkit-scrollbar-thumb {
-  background: #c1d0ff;
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--accent);
 }
 
 .neo-btn-primary {

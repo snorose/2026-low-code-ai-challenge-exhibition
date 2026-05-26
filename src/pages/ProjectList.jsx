@@ -5,9 +5,9 @@ import { ArrowRight } from "lucide-react";
 
 function ProjectList({ projects, onSelectProject }) {
   return (
-    <main className="mx-auto w-full text-left relative overflow-hidden">
-      <section className="relative overflow-hidden border-b border-(--border) bg-[#c1d0ff] text-black p-8 py-16 min-[561px]:p-16 min-[561px]:py-22 min-[901px]:p-20 min-[901px]:py-26 flex flex-col justify-center select-none">
-        <div className="relative z-10 max-w-220 flex flex-col items-start gap-5 w-full">
+    <main className="mx-auto w-full text-left relative">
+      <section className="full-bleed relative overflow-hidden border-b border-(--border) bg-[#c1d0ff] text-black px-8 py-16 min-[561px]:px-16 min-[561px]:py-22 min-[901px]:px-20 min-[901px]:py-26 flex flex-col justify-center select-none">
+        <div className="relative z-10 mx-auto max-w-(--layout-max-width) flex flex-col items-start gap-5 w-full">
           <span className="inline-flex items-center gap-1.5 rounded-full bg-white/60 px-4 py-1.5 text-xs min-[901px]:text-sm font-bold tracking-widest text-slate-800 uppercase">
             2026 LOW-CODE AI CHALLENGE EXHIBITION
           </span>
@@ -59,7 +59,7 @@ function ProjectList({ projects, onSelectProject }) {
       </section>
 
       <section
-        className="box-border p-5 min-[561px]:p-8 min-[901px]:p-12"
+        className="box-border py-5 min-[561px]:py-8 min-[901px]:py-12"
         aria-label="프로젝트 전시회 라인업"
       >
         <div className="mb-6 flex flex-col gap-1.5">
