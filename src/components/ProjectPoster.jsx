@@ -1,9 +1,8 @@
-import { getAwardLabelKo } from "../utils/award";
+import { getAwardLabelKo } from "@/utils/award";
 
 export default function ProjectPoster({ title, award, tag }) {
   return (
     <div className="relative w-full aspect-4/5 rounded-xl overflow-hidden bg-[#c1d0ff] p-6 flex flex-col justify-between text-left select-none border border-slate-300/40 dark:border-slate-800 text-black shadow-md">
-
       <div className="relative z-1 flex flex-col gap-1">
         <div class="w-[2898px] h-[926px] justify-start text-black text-[512px] font-normal font-['NATS'] leading-[450px]">
           2026 Low-Code AI CHALLENGE
