@@ -3,53 +3,11 @@ import { getAwardLabelKo } from "../utils/award";
 export default function ProjectPoster({ title, award, tag }) {
   return (
     <div className="relative w-full aspect-4/5 rounded-xl overflow-hidden bg-[#c1d0ff] p-6 flex flex-col justify-between text-left select-none border border-slate-300/40 dark:border-slate-800 text-black shadow-md">
-      <svg
-        viewBox="0 0 4961 2780"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="absolute inset-0 w-full h-full object-cover pointer-events-none opacity-[0.14] dark:opacity-[0.25] text-black dark:text-white"
-        style={{ overflow: "visible" }}
-      >
-        <path
-          d="M3955 934.5C4388.39 934.5 4739.5 1267.72 4739.5 1678.5C4739.5 2089.28 4388.39 2422.5 3955 2422.5C3521.61 2422.5 3170.5 2089.28 3170.5 1678.5C3170.5 1267.72 3521.61 934.5 3955 934.5Z"
-          stroke="currentColor"
-          strokeWidth="5"
-        />
-        <g>
-          <rect
-            x="-850"
-            y="330"
-            width="2800"
-            height="800"
-            rx="400"
-            stroke="currentColor"
-            strokeWidth="5"
-          />
-          <rect
-            x="3717.5"
-            y="1000"
-            width="2000"
-            height="1500"
-            rx="750"
-            stroke="currentColor"
-            strokeWidth="5"
-          />
-          <rect
-            x="3491.5"
-            y="-2357.5"
-            width="2596"
-            height="2873"
-            rx="1012.5"
-            stroke="currentColor"
-            strokeWidth="5"
-          />
-        </g>
-      </svg>
 
       <div className="relative z-1 flex flex-col gap-1">
-        <span className="text-[10px] font-black tracking-widest text-slate-800 uppercase">
-          2026 Low-Code AI Challenge
-        </span>
+        <div class="w-[2898px] h-[926px] justify-start text-black text-[512px] font-normal font-['NATS'] leading-[450px]">
+          2026 Low-Code AI CHALLENGE
+        </div>
         <div className="h-px w-8 bg-black/30 mt-1"></div>
       </div>
 

@@ -33,12 +33,10 @@ const projects = [
           "작품 설명, FAQ, 추천 문구를 폼 기반 관리 화면에서 빠르게 수정할 수 있습니다.",
       },
     ],
-    references: [
-      "전시 관람객 인터뷰 요약 리포트",
-      "국립현대미술관 온라인 전시 해설 사례",
-      "접근성 높은 문화 서비스 디자인 가이드",
-      "AI 챗봇 응답 품질 테스트 체크리스트",
-    ],
+    references: {
+      ppt: "#",
+      deploy: "#",
+    },
   },
   {
     subtitle:
@@ -70,11 +68,10 @@ const projects = [
         description: "개인별 목표와 진도에 맞춰 복습 알림을 보냅니다.",
       },
     ],
-    references: [
-      "학습자 인터뷰 노트",
-      "오답 유형 분류표",
-      "AI 튜터 서비스 사례 조사",
-    ],
+    references: {
+      ppt: "#",
+      deploy: "#",
+    },
   },
   {
     subtitle:
@@ -108,11 +105,10 @@ const projects = [
         description: "주간 인기 상품과 반복 구매 상품을 간단히 보여줍니다.",
       },
     ],
-    references: [
-      "지역 상권 디지털 전환 사례",
-      "상인 인터뷰 질문지",
-      "모바일 알림 메시지 작성 가이드",
-    ],
+    references: {
+      ppt: "#",
+      deploy: "#",
+    },
   },
 ];
 
