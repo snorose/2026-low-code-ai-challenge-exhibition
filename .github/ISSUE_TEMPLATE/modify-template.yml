@@ -1,7 +1,7 @@
 name: 🪄 Modify Request
 description: 기존 기능의 동작, 구조, 또는 표현을 변경하는 요청입니다.
-title: '[MODIFY] '
-labels: ['🪄 Modify']
+title: "[MODIFY] "
+labels: ["🪄 Modify"]
 body:
   - type: textarea
     id: problem

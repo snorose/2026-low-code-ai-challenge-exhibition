@@ -1,5 +1,5 @@
-import { getAwardStyle, getAwardLabelKo } from "../utils/award";
-import ProjectPoster from "../components/ProjectPoster";
+import { getAwardStyle, getAwardLabelKo } from "@/utils/award";
+import ProjectPoster from "@/components/ProjectPoster";
 import {
   ArrowLeft,
   BookOpen,
@@ -19,21 +19,27 @@ function ProjectDetail({ project, onBack }) {
     {
       eyebrow: "Project Introduction",
       title: "프로젝트 소개",
-      icon: <BookOpen className="h-5 w-5 text-indigo-500 dark:text-indigo-400" />,
+      icon: (
+        <BookOpen className="h-5 w-5 text-indigo-500 dark:text-indigo-400" />
+      ),
       body: project.intro,
       bgClass: "bg-white dark:bg-[#14151e]",
     },
     {
       eyebrow: "Problem Statement",
       title: "문제 정의",
-      icon: <AlertCircle className="h-5 w-5 text-rose-500 dark:text-rose-400" />,
+      icon: (
+        <AlertCircle className="h-5 w-5 text-rose-500 dark:text-rose-400" />
+      ),
       body: project.problem,
       bgClass: "bg-white dark:bg-[#14151e]",
     },
     {
       eyebrow: "Proposed Solution",
       title: "해결 방안",
-      icon: <Sparkles className="h-5 w-5 text-emerald-500 dark:text-emerald-400" />,
+      icon: (
+        <Sparkles className="h-5 w-5 text-emerald-500 dark:text-emerald-400" />
+      ),
       body: project.solution,
       bgClass: "bg-white dark:bg-[#14151e]",
     },
@@ -146,7 +152,10 @@ function ProjectDetail({ project, onBack }) {
           id="features-title"
           className="m-0 mt-1.5 mb-8 text-2xl font-bold text-(--text-h) min-[561px]:text-3xl flex items-center gap-2.5"
         >
-          <Cpu className="h-7 w-7 text-indigo-500 dark:text-indigo-400 shrink-0" aria-hidden="true" />
+          <Cpu
+            className="h-7 w-7 text-indigo-500 dark:text-indigo-400 shrink-0"
+            aria-hidden="true"
+          />
           프로젝트 핵심 기능
         </h2>
         <div className="grid grid-cols-1 gap-6 min-[901px]:grid-cols-2">
@@ -183,7 +192,10 @@ function ProjectDetail({ project, onBack }) {
             id="demo-title"
             className="m-0 mt-1.5 mb-4 text-2xl font-bold text-(--text-h) min-[561px]:text-3xl flex items-center gap-2.5"
           >
-            <PlayCircle className="h-7 w-7 text-indigo-500 dark:text-indigo-400 shrink-0" aria-hidden="true" />
+            <PlayCircle
+              className="h-7 w-7 text-indigo-500 dark:text-indigo-400 shrink-0"
+              aria-hidden="true"
+            />
             데모 영상
           </h2>
           <p className="text-sm leading-[1.7] text-(--text)">
@@ -241,7 +253,10 @@ function ProjectDetail({ project, onBack }) {
           id="team-title"
           className="m-0 mt-1.5 mb-8 text-2xl font-bold text-(--text-h) min-[561px]:text-3xl flex items-center gap-2.5"
         >
-          <Users className="h-7 w-7 text-indigo-500 dark:text-indigo-400 shrink-0" aria-hidden="true" />
+          <Users
+            className="h-7 w-7 text-indigo-500 dark:text-indigo-400 shrink-0"
+            aria-hidden="true"
+          />
           프로젝트 메이커스
         </h2>
         <div className="grid grid-cols-1 gap-6 min-[561px]:grid-cols-2">
@@ -285,7 +300,10 @@ function ProjectDetail({ project, onBack }) {
           id="references-title"
           className="m-0 mt-1.5 mb-6 text-2xl font-bold text-(--text-h) min-[561px]:text-3xl flex items-center gap-2.5"
         >
-          <FolderHeart className="h-7 w-7 text-indigo-500 dark:text-indigo-400 shrink-0" aria-hidden="true" />
+          <FolderHeart
+            className="h-7 w-7 text-indigo-500 dark:text-indigo-400 shrink-0"
+            aria-hidden="true"
+          />
           리소스 및 참고 자료
         </h2>
         <div className="mt-5 grid grid-cols-1 gap-4 min-[561px]:grid-cols-2">

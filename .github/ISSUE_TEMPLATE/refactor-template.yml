@@ -1,7 +1,7 @@
 name: 🛠️ Refactor Request
 description: 기능 변경 없이 코드 구조를 개선하는 요청입니다.
-title: '[REFACTOR] '
-labels: ['🛠️ Refactor']
+title: "[REFACTOR] "
+labels: ["🛠️ Refactor"]
 body:
   - type: textarea
     id: problem

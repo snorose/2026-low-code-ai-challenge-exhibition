@@ -1,4 +1,4 @@
-name: 'Auto Assign and Set Issue Type'
+name: "Auto Assign and Set Issue Type"
 
 on:
   issues:

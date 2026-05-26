@@ -1,6 +1,6 @@
-import { getAwardStyle, getAwardLabelKo } from "../utils/award";
-import snoroseLogo from "../assets/snorose-logo.svg";
-import upstageLogo from "../assets/upstage-logo.svg";
+import { getAwardStyle, getAwardLabelKo } from "@/utils/award";
+import snoroseLogo from "@/assets/snorose-logo.svg";
+import upstageLogo from "@/assets/upstage-logo.svg";
 import { ArrowRight } from "lucide-react";
 
 function ProjectList({ projects, onSelectProject }) {
