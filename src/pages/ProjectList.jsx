@@ -6,9 +6,9 @@ import { ArrowRight } from "lucide-react";
 function ProjectList({ projects, onSelectProject }) {
   return (
     <main className="mx-auto w-full text-left relative">
-      <section className="full-bleed relative overflow-hidden border-b border-(--border) bg-[#c1d0ff] text-black py-16 min-[561px]:py-22 min-[901px]:py-26 flex flex-col justify-center select-none">
+      <section className="full-bleed relative overflow-hidden border-b border-(--border) bg-[#c1d0ff] text-black pt-18 pb-10 min-[561px]:pt-24 min-[561px]:pb-14 min-[901px]:pt-30 min-[901px]:pb-16 flex flex-col justify-center select-none">
         <div className="relative z-10 mx-auto flex w-full max-w-(--layout-max-width) flex-col items-start gap-5 px-5 min-[561px]:px-8 min-[901px]:px-10">
-          <h1 className="m-0 whitespace-nowrap text-[clamp(2.35rem,7.4vw,6rem)] font-black tracking-tighter text-black leading-none font-nats">
+          <h1 className="m-0 max-w-250 text-[clamp(2.1rem,6.2vw,4.75rem)] font-black tracking-tighter text-black leading-[1.08] font-nats [word-break:keep-all] [overflow-wrap:normal]">
             2026 Low-Code AI CHALLENGE
           </h1>
 
@@ -20,7 +20,7 @@ function ProjectList({ projects, onSelectProject }) {
             팀원들의 이야기를 확인해보세요.
           </p>
 
-          <div className="mt-6 flex flex-wrap items-start min-[561px]:items-center gap-8 sm:gap-12 border-t border-black/10 pt-5 w-full">
+          <div className="flex flex-wrap items-start min-[561px]:items-center gap-8 sm:gap-12 border-t border-black/10 pt-5 w-full">
             <div className="flex flex-col gap-1 text-left">
               <span className="text-xs min-[901px]:text-base font-bold tracking-wider text-slate-700/60 uppercase select-none">
                 주관
@@ -89,7 +89,7 @@ function ProjectList({ projects, onSelectProject }) {
                   {project.summary}
                 </p>
 
-                <div className="mt-auto flex flex-wrap gap-1.5">
+                <div className="mt-auto flex flex-wrap gap-1.5 pt-4">
                   {project.tags.slice(1, 3).map((tag) => (
                     <span
                       key={tag}
