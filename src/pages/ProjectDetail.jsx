@@ -54,7 +54,7 @@ function ProjectDetail({ project, onBack }) {
         <div className="mx-auto w-full max-w-(--layout-max-width) px-5 min-[561px]:px-8 min-[901px]:px-10">
           <button
             type="button"
-            className="neo-btn-secondary mb-8 py-1.5 px-4 text-xs min-[901px]:text-sm flex items-center gap-1.5"
+            className="neo-btn-secondary mb-8 py-1.5 px-4 text-xs min-[901px]:text-sm flex cursor-pointer items-center gap-1.5"
             onClick={onBack}
           >
             <ArrowLeft className="h-3.5 w-3.5" />
