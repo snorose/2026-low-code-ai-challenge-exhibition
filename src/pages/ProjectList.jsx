@@ -16,7 +16,7 @@ function ProjectList({ projects, onSelectProject }) {
             Low-Code와 최신 AI 기술을 결합하여 창의적인 디지털 혁신을 보여준
             수상 팀들의 프로젝트 전시관입니다.
             <br />
-            카드를 선택해 상세한 문제 정의와 기술적 해결 방안, 데모 영상과
+            프로젝트를 선택해 상세한 문제 정의와 기술적 해결 방안, 데모 영상과
             팀원들의 이야기를 확인해보세요.
           </p>
 
@@ -61,7 +61,7 @@ function ProjectList({ projects, onSelectProject }) {
               프로젝트 라인업
             </h2>
             <p className="text-sm min-[901px]:text-base text-(--text)">
-              카드 상세보기를 클릭하여 팀 프로젝트의 자세한 여정을 살펴보세요.
+              상세보기를 클릭하여 팀 프로젝트의 자세한 여정을 살펴보세요.
             </p>
           </div>
 
@@ -82,10 +82,10 @@ function ProjectList({ projects, onSelectProject }) {
                   </span>
                 </div>
 
-                <h3 className="m-0 mb-2.5 text-lg font-bold leading-[1.3] text-(--text-h) transition-colors duration-500 ease-out group-hover:text-(--accent)">
+                <h3 className="m-0 mb-2.5 text-xl font-bold leading-[1.3] text-(--text-h) transition-colors duration-500 ease-out group-hover:text-(--accent)">
                   {project.title}
                 </h3>
-                <p className="mb-5 text-[13.5px] min-[901px]:text-sm leading-[1.6] text-(--text) line-clamp-3">
+                <p className="mb-5 text-[13.5px] min-[901px]:text-sm leading-[1.6] text-(--text) line-clamp-3 [word-break:keep-all] [overflow-wrap:normal]">
                   {project.summary}
                 </p>
 
