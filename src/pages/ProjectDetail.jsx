@@ -76,7 +76,7 @@ function ProjectDetail({ project, onBack }) {
               <p className="m-0 mb-4 text-base font-bold text-indigo-600 dark:text-indigo-400 min-[561px]:text-lg">
                 {project.subtitle}
               </p>
-              <p className="max-w-180 text-sm leading-[1.7] text-(--text)">
+              <p className="max-w-180 text-sm leading-[1.7] text-(--text) [word-break:keep-all] [overflow-wrap:normal]">
                 {project.summary}
               </p>
               <div
@@ -128,7 +128,7 @@ function ProjectDetail({ project, onBack }) {
               <h2 className="m-0 mb-3 text-lg font-bold text-(--text-h)">
                 {section.title}
               </h2>
-              <p className="text-[13.5px] min-[901px]:text-sm leading-[1.7] text-(--text)">
+              <p className="text-[13.5px] min-[901px]:text-sm leading-[1.7] text-(--text) [word-break:keep-all] [overflow-wrap:normal]">
                 {section.body}
               </p>
             </article>
@@ -168,7 +168,7 @@ function ProjectDetail({ project, onBack }) {
                     {feature.title}
                   </h3>
                 </div>
-                <p className="text-[13.5px] min-[901px]:text-sm leading-[1.65] text-(--text)">
+                <p className="text-[13.5px] min-[901px]:text-sm leading-[1.65] text-(--text) [word-break:keep-all] [overflow-wrap:normal]">
                   {feature.description}
                 </p>
               </article>
@@ -196,7 +196,7 @@ function ProjectDetail({ project, onBack }) {
               />
               데모 영상
             </h2>
-            <p className="text-sm leading-[1.7] text-(--text)">
+            <p className="text-sm leading-[1.7] text-(--text) [word-break:keep-all] [overflow-wrap:normal]">
               {project.demo.description}
             </p>
             <div className="mt-5 flex items-center gap-2">
@@ -281,7 +281,7 @@ function ProjectDetail({ project, onBack }) {
                     </span>
                   </div>
                 </div>
-                <p className="text-[13px] min-[901px]:text-sm leading-[1.6] text-(--text)">
+                <p className="text-[13px] min-[901px]:text-sm leading-[1.6] text-(--text) [word-break:keep-all] [overflow-wrap:normal]">
                   {member.description}
                 </p>
               </article>
