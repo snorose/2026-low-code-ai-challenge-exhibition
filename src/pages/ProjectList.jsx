@@ -53,15 +53,15 @@ function ProjectList({ projects, onSelectProject }) {
 
       <section
         className="box-border py-5 min-[561px]:py-8 min-[901px]:py-12"
-        aria-label="프로젝트 전시회 라인업"
+        aria-label="수상 프로젝트 목록"
       >
         <div className="mx-auto w-full max-w-(--layout-max-width) px-5 min-[561px]:px-8 min-[901px]:px-10">
           <div className="mb-6 flex flex-col gap-1.5">
             <h2 className="m-0 text-2xl font-bold text-(--text-h) min-[561px]:text-3xl">
-              프로젝트 라인업
+              수상 프로젝트
             </h2>
             <p className="text-sm min-[901px]:text-base text-(--text)">
-              상세보기를 클릭하여 팀 프로젝트의 자세한 여정을 살펴보세요.
+              상세보기를 클릭하여 프로젝트 상세 페이지로 이동해보세요.
             </p>
           </div>
 

@@ -152,7 +152,7 @@ function ProjectDetail({ project, onBack }) {
               className="h-7 w-7 text-indigo-500 dark:text-indigo-400 shrink-0"
               aria-hidden="true"
             />
-            프로젝트 핵심 기능
+            프로젝트 주요 기능
           </h2>
           <div className="grid grid-cols-1 gap-6 min-[901px]:grid-cols-2">
             {project.features.map((feature, idx) => (
@@ -247,7 +247,7 @@ function ProjectDetail({ project, onBack }) {
       >
         <div className="mx-auto w-full max-w-(--layout-max-width) px-5 min-[561px]:px-8 min-[901px]:px-10">
           <span className="text-xs min-[901px]:text-sm font-bold tracking-wider text-indigo-500 uppercase dark:text-indigo-400">
-            Exhibition Builders
+            Team Members
           </span>
           <h2
             id="team-title"
@@ -257,7 +257,7 @@ function ProjectDetail({ project, onBack }) {
               className="h-7 w-7 text-indigo-500 dark:text-indigo-400 shrink-0"
               aria-hidden="true"
             />
-            프로젝트 메이커스
+            팀원 소개
           </h2>
           <div className="grid grid-cols-1 gap-6 min-[561px]:grid-cols-2">
             {project.members.map((member) => (
@@ -320,7 +320,7 @@ function ProjectDetail({ project, onBack }) {
                     PPT 발표 자료
                   </h3>
                   <p className="mt-0.5 text-xs min-[901px]:text-sm text-(--text)">
-                    기획서 및 프로젝트 핵심 발표 자료
+                    기획서 및 프로젝트 발표 자료
                   </p>
                 </div>
               </div>
