@@ -57,7 +57,7 @@ function ProjectDetail({ project, onBack }) {
         <div className="mx-auto w-full max-w-(--layout-max-width) px-5 min-[561px]:px-8 min-[901px]:px-10">
           <button
             type="button"
-            className="neo-btn-secondary mb-8 py-1.5 px-4 text-sm flex cursor-pointer items-center gap-1.5"
+            className="neo-btn-secondary mb-4 py-1.5 text-sm flex cursor-pointer items-center gap-1.5"
             onClick={onBack}
           >
             <ArrowLeft className="h-3.5 w-3.5" />
@@ -85,7 +85,7 @@ function ProjectDetail({ project, onBack }) {
               </div>
               <h1
                 id="project-title"
-                className="mt-4 mb-2 text-3xl font-extrabold text-(--text-h) min-[561px]:text-4xl min-[901px]:text-5xl leading-none"
+                className="mt-4 mb-3 text-3xl font-extrabold leading-[1.12] text-(--text-h) min-[561px]:text-4xl min-[901px]:text-5xl min-[901px]:leading-[1.08]"
               >
                 {titleWords.map((word, index) => (
                   <span
@@ -98,14 +98,14 @@ function ProjectDetail({ project, onBack }) {
                   </span>
                 ))}
               </h1>
-              <p className="m-0 mb-4 text-base font-bold text-indigo-600 dark:text-indigo-400 min-[561px]:text-lg">
+              <p className="m-0 mb-3 text-base font-bold leading-[1.45] text-indigo-600 dark:text-indigo-400 min-[561px]:text-lg">
                 {project.subtitle}
               </p>
-              <p className="max-w-210 text-sm leading-[1.7] text-(--text) break-keep wrap-normal">
+              <p className="max-w-210 text-sm leading-[1.75] text-(--text) break-keep wrap-normal">
                 {project.summary}
               </p>
               {isLandscapePoster && project.posterSrc ? (
-                <div className="mt-8 flex w-full justify-start">
+                <div className="mt-4 flex w-full justify-start">
                   <ProjectPoster
                     title={project.title}
                     award={project.award}
