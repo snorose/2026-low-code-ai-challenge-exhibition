@@ -62,11 +62,18 @@ function ProjectDetail({ project, onBack }) {
           </button>
           <div className="relative z-1 grid grid-cols-1 gap-8 min-[901px]:grid-cols-[1.15fr_0.85fr] min-[901px]:items-center">
             <div className="max-w-205">
-              <span
-                className={`inline-flex items-center rounded-full px-3 py-1 text-sm min-[901px]:text-base font-bold ${getAwardStyle(project.award)}`}
-              >
-                {getAwardLabelKo(project.award)}
-              </span>
+              <div className="flex flex-wrap items-center gap-2">
+                <span
+                  className={`inline-flex items-center rounded-full px-3 py-1 text-sm min-[901px]:text-base font-bold ${getAwardStyle(project.award)}`}
+                >
+                  {getAwardLabelKo(project.award)}
+                </span>
+                {project.teamName ? (
+                  <span className="inline-flex items-center rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-sm min-[901px]:text-base font-semibold text-indigo-800 dark:border-indigo-800/70 dark:bg-indigo-950/40 dark:text-indigo-200">
+                    {project.teamName} 팀
+                  </span>
+                ) : null}
+              </div>
               <h1
                 id="project-title"
                 className="mt-4 mb-2 text-3xl font-extrabold text-(--text-h) min-[561px]:text-4xl min-[901px]:text-5xl leading-none"
@@ -275,12 +282,12 @@ function ProjectDetail({ project, onBack }) {
                 className="box-border flex flex-col items-start gap-2 rounded-xl border border-slate-100 bg-white p-6 shadow-sm transition-all duration-500 ease-out hover:-translate-y-0.5 hover:shadow-md dark:bg-[#14151e] dark:border-slate-800"
                 key={member.name}
               >
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-2">
                   <h3 className="m-0 text-base font-bold text-(--text-h)">
                     {member.name}
                   </h3>
                   {member.role ? (
-                    <span className="inline-block mt-0.5 rounded bg-indigo-50/50 px-2 py-0.5 text-sm font-bold text-indigo-700 dark:bg-indigo-950/20 dark:text-indigo-300">
+                    <span className="inline-block mt-0.5 rounded-full border border-indigo-200 bg-indigo-50 px-2 py-0.5 text-xs font-semibold text-indigo-800 shadow-[0_1px_0_rgba(79,70,229,0.08)] dark:border-indigo-800/70 dark:bg-indigo-950/40 dark:text-indigo-200">
                       {member.role}
                     </span>
                   ) : null}
@@ -326,7 +333,7 @@ function ProjectDetail({ project, onBack }) {
                   <Presentation className="h-5 w-5" aria-hidden="true" />
                 </span>
                 <div>
-                  <h3 className="m-0 text-sm font-bold text-(--text-h) transition-colors duration-500 ease-out group-hover:text-indigo-500 dark:group-hover:text-indigo-400">
+                  <h3 className="m-0 text-md font-bold text-(--text-h) transition-colors duration-500 ease-out group-hover:text-indigo-500 dark:group-hover:text-indigo-400">
                     PPT 발표 자료
                   </h3>
                   <p className="mt-0.5 text-sm text-(--text)">
@@ -348,7 +355,7 @@ function ProjectDetail({ project, onBack }) {
                   <Globe className="h-5 w-5" aria-hidden="true" />
                 </span>
                 <div>
-                  <h3 className="m-0 text-sm font-bold text-(--text-h) transition-colors duration-500 ease-out group-hover:text-indigo-500 dark:group-hover:text-indigo-400">
+                  <h3 className="m-0 text-md font-bold text-(--text-h) transition-colors duration-500 ease-out group-hover:text-indigo-500 dark:group-hover:text-indigo-400">
                     서비스 배포 링크
                   </h3>
                   <p className="mt-0.5 text-sm text-(--text)">

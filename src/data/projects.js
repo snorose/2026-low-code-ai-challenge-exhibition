@@ -113,21 +113,48 @@ const projects = [
 ];
 
 const awardTeams = [
-  { title: "스노러닝", slug: "hicosong", award: "Grand Prize" },
+  {
+    title: "스노러닝",
+    teamName: "Hicosong",
+    slug: "hicosong",
+    award: "Grand Prize",
+  },
   {
     title: "RECLAIM : AI가 찾아주는 소비자 권리",
+    teamName: "Sokeukeu",
     slug: "sokeukeu",
     award: "Top Excellence Award",
   },
   {
     title: "숙명여대 배리어프리 지도 VeriWay",
+    teamName: "FIT",
     slug: "fit",
     award: "Excellence Award",
   },
-  { title: "Reservia", slug: "nailgent", award: "Excellence Award" },
-  { title: "Sol-mate", slug: "solarsystem", award: "Popularity Award" },
-  { title: "자소핏", slug: "sisam", award: "Effort Award" },
-  { title: "어디두지", slug: "locomoco", award: "Perfect Award" },
+  {
+    title: "Reservia",
+    teamName: "Nailgent",
+    slug: "nailgent",
+    award: "Excellence Award",
+  },
+  {
+    title: "Sol-mate",
+    teamName: "SolarSystem",
+    slug: "solarsystem",
+    award: "Popularity Award",
+  },
+  {
+    title: "자소핏",
+    teamName: "Sisam",
+    slug: "sisam",
+    award: "Effort Award",
+  },
+  {
+    title: "어디두지",
+    teamName: "LOCOMOCO",
+    slug: "locomoco",
+    award: "Perfect Award",
+  },
 ];
 
 const projectOverrides = {
@@ -591,6 +618,7 @@ export const projectRoutes = awardTeams.map((team, index) => {
     id: team.slug,
     slug: team.slug,
     title: team.title,
+    teamName: team.teamName,
     award: team.award,
     demo: {
       title: "데모 영상 준비 중",

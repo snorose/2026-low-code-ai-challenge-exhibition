@@ -91,9 +91,11 @@ function ProjectList({ projects, onSelectProject }) {
                   >
                     {getAwardLabelKo(project.award)}
                   </span>
-                  <span className="rounded-full bg-slate-100 px-2 py-0.5 text-sm font-bold text-slate-700 dark:bg-slate-800 dark:text-slate-200">
-                    {project.tags[0]}
-                  </span>
+                  {project.teamName ? (
+                    <span className="rounded-full border border-indigo-200 bg-indigo-50 px-2.5 py-0.5 text-sm font-semibold text-indigo-800 dark:border-indigo-800/70 dark:bg-indigo-950/40 dark:text-indigo-200">
+                      {project.teamName} 팀
+                    </span>
+                  ) : null}
                 </div>
 
                 <h3 className="m-0 mb-2.5 text-xl font-bold leading-[1.3] text-(--text-h) transition-colors duration-500 ease-out group-hover:text-(--accent)">
@@ -103,11 +105,11 @@ function ProjectList({ projects, onSelectProject }) {
                   {project.summary}
                 </p>
 
-                <div className="mt-auto flex flex-wrap gap-1.5 pt-4">
-                  {project.tags.slice(1, 3).map((tag) => (
+                <div className="mt-auto flex flex-wrap gap-1.5">
+                  {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="text-sm text-indigo-700 font-bold dark:text-indigo-300"
+                      className="rounded-full bg-slate-100 px-2 text-[12px] font-semibold text-slate-700 dark:bg-slate-800 dark:text-slate-200"
                     >
                       #{tag}
                     </span>
