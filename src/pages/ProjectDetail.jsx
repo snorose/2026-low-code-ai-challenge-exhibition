@@ -86,19 +86,6 @@ function ProjectDetail({ project, onBack }) {
               <p className="max-w-180 text-sm leading-[1.7] text-(--text) break-keep wrap-normal">
                 {project.summary}
               </p>
-              <div
-                className="mt-6 flex flex-wrap gap-2"
-                aria-label="프로젝트 키워드"
-              >
-                {project.tags.map((tag) => (
-                  <span
-                    className="inline-flex min-h-8 items-center rounded-full border border-slate-300 bg-slate-50 px-3.5 py-0.5 text-sm font-bold text-slate-800 dark:bg-[#1a1c2d] dark:border-slate-700 dark:text-slate-100"
-                    key={tag}
-                  >
-                    #{tag}
-                  </span>
-                ))}
-              </div>
             </div>
 
             <div className="flex justify-center min-[901px]:justify-end">
@@ -106,7 +93,6 @@ function ProjectDetail({ project, onBack }) {
                 <ProjectPoster
                   title={project.title}
                   award={project.award}
-                  tag={project.tags[0]}
                 />
               </div>
             </div>

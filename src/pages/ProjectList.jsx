@@ -105,18 +105,7 @@ function ProjectList({ projects, onSelectProject }) {
                   {project.summary}
                 </p>
 
-                <div className="mt-auto flex flex-wrap gap-1.5">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-full bg-slate-100 px-2 text-[12px] font-semibold text-slate-700 dark:bg-slate-800 dark:text-slate-200"
-                    >
-                      #{tag}
-                    </span>
-                  ))}
-                </div>
-
-                <div className="mt-4 flex w-full items-center justify-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 py-2.5 text-sm font-semibold text-(--text-h) transition-all duration-500 ease-out group-hover:border-[#c1d0ff] group-hover:bg-[#c1d0ff] group-hover:text-black dark:border-slate-800 dark:bg-[#1a1c2d]">
+                <div className="mt-auto flex w-full items-center justify-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 py-2.5 text-sm font-semibold text-(--text-h) transition-all duration-500 ease-out group-hover:border-[#c1d0ff] group-hover:bg-[#c1d0ff] group-hover:text-black dark:border-slate-800 dark:bg-[#1a1c2d]">
                   상세 보기
                   <ArrowRight className="h-4 w-4 transform transition-transform duration-500 ease-out group-hover:translate-x-0.5" />
                 </div>
