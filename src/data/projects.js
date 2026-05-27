@@ -1,3 +1,21 @@
+import posterFit from "@/assets/posters/poster-fit.png";
+import posterHicosong from "@/assets/posters/poster-hicosong.png";
+import posterLocomoco from "@/assets/posters/poster-locomoco.png";
+import posterNailgent from "@/assets/posters/poster-nailgent.png";
+import posterSisam from "@/assets/posters/poster-sisam.png";
+import posterSokeukeu from "@/assets/posters/poster-sokeukeu.png";
+import posterSolarsystem from "@/assets/posters/poster-solarsystem.png";
+
+const posterImages = {
+  fit: { src: posterFit, orientation: "landscape" },
+  hicosong: { src: posterHicosong, orientation: "landscape" },
+  locomoco: { src: posterLocomoco, orientation: "landscape" },
+  nailgent: { src: posterNailgent, orientation: "landscape" },
+  sisam: { src: posterSisam, orientation: "portrait" },
+  sokeukeu: { src: posterSokeukeu, orientation: "portrait" },
+  solarsystem: { src: posterSolarsystem, orientation: "landscape" },
+};
+
 const projects = [
   {
     subtitle:
@@ -611,6 +629,7 @@ export const projectRoutes = awardTeams.map((team, index) => {
   const template = projects[index % projects.length];
   const override = projectOverrides[team.slug] ?? {};
   const teamMembers = projectMembers[team.slug] ?? members;
+  const poster = posterImages[team.slug];
 
   return {
     ...template,
@@ -620,6 +639,8 @@ export const projectRoutes = awardTeams.map((team, index) => {
     title: team.title,
     teamName: team.teamName,
     award: team.award,
+    posterSrc: poster?.src,
+    posterOrientation: poster?.orientation,
     demo: {
       title: "데모 영상 준비 중",
       description:
