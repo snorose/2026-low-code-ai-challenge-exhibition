@@ -338,7 +338,7 @@ function ProjectDetail({ project, onBack }) {
               className="h-7 w-7 text-indigo-500 dark:text-indigo-400 shrink-0"
               aria-hidden="true"
             />
-            리소스 및 참고 자료
+            프로젝트 자료
           </h2>
           <div className="mt-5 grid grid-cols-1 gap-4 min-[561px]:grid-cols-2 min-[901px]:grid-cols-3">
             <a
@@ -355,9 +355,6 @@ function ProjectDetail({ project, onBack }) {
                   <h3 className="m-0 text-md font-bold text-(--text-h) transition-colors duration-500 ease-out group-hover:text-indigo-500 dark:group-hover:text-indigo-400">
                     PPT 발표 자료
                   </h3>
-                  <p className="mt-0.5 text-sm text-(--text)">
-                    기획서 및 프로젝트 발표 자료
-                  </p>
                 </div>
               </div>
               <ExternalLink className="h-4 w-4 text-slate-400 transition-transform duration-500 ease-out group-hover:translate-x-0.5 dark:text-slate-500" />
@@ -377,9 +374,6 @@ function ProjectDetail({ project, onBack }) {
                   <h3 className="m-0 text-md font-bold text-(--text-h) transition-colors duration-500 ease-out group-hover:text-indigo-500 dark:group-hover:text-indigo-400">
                     서비스 배포 링크
                   </h3>
-                  <p className="mt-0.5 text-sm text-(--text)">
-                    실제 서비스 데모 및 프로덕션 확인
-                  </p>
                 </div>
               </div>
               <ExternalLink className="h-4 w-4 text-slate-400 transition-transform duration-500 ease-out group-hover:translate-x-0.5 dark:text-slate-500" />
@@ -404,9 +398,6 @@ function ProjectDetail({ project, onBack }) {
                     <h3 className="m-0 text-md font-bold text-(--text-h) transition-colors duration-500 ease-out group-hover:text-indigo-500 dark:group-hover:text-indigo-400">
                       포스터 이미지
                     </h3>
-                    <p className="mt-0.5 text-sm text-(--text)">
-                      프로젝트 포스터 원본 확인
-                    </p>
                   </div>
                 </div>
                 <ExternalLink className="h-4 w-4 text-slate-400 transition-transform duration-500 ease-out group-hover:translate-x-0.5 dark:text-slate-500" />
