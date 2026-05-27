@@ -1,23 +1,23 @@
 import { useEffect, useState } from "react";
 
-const getProjectSlugFromPath = () => {
-  const [, basePath, projectSlug] = window.location.pathname.split("/");
+const getProjectNameFromPath = () => {
+  const [, basePath, encodedProjectName] = window.location.pathname.split("/");
 
-  if (basePath !== "projects" || !projectSlug) {
+  if (basePath !== "projects" || !encodedProjectName) {
     return null;
   }
 
-  return decodeURIComponent(projectSlug).toLowerCase();
+  return decodeURIComponent(encodedProjectName);
 };
 
 export function useProjectRouter() {
   const [selectedProjectId, setSelectedProjectId] = useState(
-    getProjectSlugFromPath,
+    getProjectNameFromPath,
   );
 
   useEffect(() => {
     const handlePopState = () => {
-      setSelectedProjectId(getProjectSlugFromPath());
+      setSelectedProjectId(getProjectNameFromPath());
     };
 
     window.addEventListener("popstate", handlePopState);
@@ -31,9 +31,13 @@ export function useProjectRouter() {
     setSelectedProjectId(null);
   };
 
-  const navigateToProject = (projectSlug) => {
-    window.history.pushState({}, "", `/projects/${projectSlug}`);
-    setSelectedProjectId(projectSlug);
+  const navigateToProject = (projectName) => {
+    window.history.pushState(
+      {},
+      "",
+      `/projects/${encodeURIComponent(projectName)}`,
+    );
+    setSelectedProjectId(projectName);
   };
 
   return {

@@ -8,7 +8,7 @@ function App() {
     useProjectRouter();
 
   const selectedProject = projectRoutes.find(
-    (project) => project.slug === selectedProjectId,
+    (project) => project.routeName === selectedProjectId,
   );
 
   if (selectedProject) {
