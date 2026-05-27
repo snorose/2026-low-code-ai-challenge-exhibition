@@ -132,8 +132,7 @@ const projects = [
 
 const awardTeams = [
   {
-    title: "스노러닝",
-    routeName: "snolearning",
+    title: "snolearning",
     teamName: "Hicosong",
     slug: "hicosong",
     award: "Grand Prize",
@@ -607,6 +606,30 @@ const projectMembers = {
   ],
 };
 
+const projectReferences = {
+  hicosong: {
+    ppt: "https://drive.google.com/file/d/120wMMLLJ7pgKLvl7kRdkdp9rS9yApBCf/view?usp=sharing",
+  },
+  sokeukeu: {
+    ppt: "https://drive.google.com/file/d/1CyUxiQ0YDag1CrrKP9gv0E9OBsFfSdUO/view?usp=sharing",
+  },
+  fit: {
+    ppt: "https://drive.google.com/file/d/1HHMCUkjtlDcOFdT_7sMtQzRqiW0OOGUA/view?usp=sharing",
+  },
+  nailgent: {
+    ppt: "https://drive.google.com/file/d/1u3GX_CO0hxYS8mV8aOeqWCGe8OmoQk17/view?usp=sharing",
+  },
+  solarsystem: {
+    ppt: "https://drive.google.com/file/d/1RP0FNdroieTGxsZmGg4ydKXsg9MB2UA3/view?usp=sharing",
+  },
+  sisam: {
+    ppt: "https://drive.google.com/file/d/1xOkwO_EcLLDs5LfUTj2SwpLFYDHYATiO/view?usp=sharing",
+  },
+  locomoco: {
+    ppt: "https://drive.google.com/file/d/1qtsISoWAM2Vsv9bb0kejNH5YrNFtLSnW/view?usp=sharing",
+  },
+};
+
 const members = [
   {
     name: "김리원",
@@ -640,6 +663,11 @@ export const projectRoutes = awardTeams.map((team, index) => {
   return {
     ...template,
     ...override,
+    references: {
+      ...template.references,
+      ...override.references,
+      ...projectReferences[team.slug],
+    },
     id: team.slug,
     slug: team.slug,
     routeName: team.routeName ?? team.title,
