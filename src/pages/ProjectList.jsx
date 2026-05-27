@@ -4,6 +4,13 @@ import upstageLogo from "@/assets/upstage-logo.svg";
 import { ArrowRight } from "lucide-react";
 
 function ProjectList({ projects, onSelectProject }) {
+  const handleProjectCardKeyDown = (event, slug) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      onSelectProject(slug);
+    }
+  };
+
   return (
     <main className="mx-auto w-full text-left relative">
       <section className="full-bleed relative overflow-hidden border-b border-(--border) bg-[#c1d0ff] text-black pt-18 pb-10 min-[561px]:pt-24 min-[561px]:pb-14 min-[901px]:pt-30 min-[901px]:pb-16 flex flex-col justify-center select-none">
@@ -22,7 +29,7 @@ function ProjectList({ projects, onSelectProject }) {
 
           <div className="flex flex-wrap items-start min-[561px]:items-center gap-8 sm:gap-12 border-t border-black/10 pt-5 w-full">
             <div className="flex flex-col gap-1 text-left">
-              <span className="text-xs min-[901px]:text-base font-bold tracking-wider text-slate-700/60 uppercase select-none">
+              <span className="text-sm min-[901px]:text-base font-bold tracking-wider text-slate-700/60 uppercase select-none">
                 주관
               </span>
               <span className="text-sm min-[901px]:text-base font-bold text-slate-800">
@@ -30,7 +37,7 @@ function ProjectList({ projects, onSelectProject }) {
               </span>
             </div>
             <div className="flex flex-col gap-1 text-left">
-              <span className="text-xs min-[901px]:text-base font-bold tracking-wider text-slate-700/60 uppercase select-none">
+              <span className="text-sm min-[901px]:text-base font-bold tracking-wider text-slate-700/60 uppercase select-none">
                 파트너
               </span>
               <div className="flex items-center gap-4">
@@ -53,15 +60,15 @@ function ProjectList({ projects, onSelectProject }) {
 
       <section
         className="box-border py-5 min-[561px]:py-8 min-[901px]:py-12"
-        aria-label="프로젝트 전시회 라인업"
+        aria-label="수상 프로젝트 목록"
       >
         <div className="mx-auto w-full max-w-(--layout-max-width) px-5 min-[561px]:px-8 min-[901px]:px-10">
           <div className="mb-6 flex flex-col gap-1.5">
             <h2 className="m-0 text-2xl font-bold text-(--text-h) min-[561px]:text-3xl">
-              프로젝트 라인업
+              수상 프로젝트
             </h2>
             <p className="text-sm min-[901px]:text-base text-(--text)">
-              상세보기를 클릭하여 팀 프로젝트의 자세한 여정을 살펴보세요.
+              프로젝트 카드를 선택하여 상세 페이지로 이동해보세요.
             </p>
           </div>
 
@@ -69,45 +76,50 @@ function ProjectList({ projects, onSelectProject }) {
             {projects.map((project) => (
               <article
                 key={project.id}
-                className="group flex flex-col rounded-xl border border-slate-100 bg-white p-6 text-left shadow-sm transition-all duration-500 ease-out hover:-translate-y-0.5 hover:shadow-lg dark:border-slate-800 dark:bg-[#14151e]"
+                role="button"
+                tabIndex={0}
+                aria-label={`${project.title} 상세 페이지로 이동`}
+                onClick={() => onSelectProject(project.slug)}
+                onKeyDown={(event) =>
+                  handleProjectCardKeyDown(event, project.slug)
+                }
+                className="group flex cursor-pointer flex-col rounded-xl border border-slate-100 bg-white p-6 text-left shadow-sm transition-all duration-500 ease-out hover:-translate-y-0.5 hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#879cff] focus-visible:ring-offset-2 focus-visible:ring-offset-(--bg) dark:border-slate-800 dark:bg-[#14151e]"
               >
                 <div className="mb-3.5 flex flex-wrap items-center justify-between gap-2">
                   <span
-                    className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs min-[901px]:text-sm font-bold ${getAwardStyle(project.award)}`}
+                    className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-sm font-bold ${getAwardStyle(project.award)}`}
                   >
                     {getAwardLabelKo(project.award)}
                   </span>
-                  <span className="rounded-full bg-slate-100 px-2 py-0.5 text-xs min-[901px]:text-sm font-bold text-slate-700 dark:bg-slate-800 dark:text-slate-200">
-                    {project.tags[0]}
-                  </span>
+                  {project.teamName ? (
+                    <span className="rounded-full border border-indigo-200 bg-indigo-50 px-2.5 py-0.5 text-sm font-semibold text-indigo-800 dark:border-indigo-800/70 dark:bg-indigo-950/40 dark:text-indigo-200">
+                      {project.teamName} 팀
+                    </span>
+                  ) : null}
                 </div>
 
                 <h3 className="m-0 mb-2.5 text-xl font-bold leading-[1.3] text-(--text-h) transition-colors duration-500 ease-out group-hover:text-(--accent)">
                   {project.title}
                 </h3>
-                <p className="mb-5 text-[13.5px] min-[901px]:text-sm leading-[1.6] text-(--text) line-clamp-3 [word-break:keep-all] [overflow-wrap:normal]">
+                <p className="mb-5 text-sm leading-[1.6] text-(--text) line-clamp-3 [word-break:keep-all] [overflow-wrap:normal]">
                   {project.summary}
                 </p>
 
-                <div className="mt-auto flex flex-wrap gap-1.5 pt-4">
-                  {project.tags.slice(1, 3).map((tag) => (
+                <div className="mt-auto flex flex-wrap gap-1.5">
+                  {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="text-xs min-[901px]:text-sm text-indigo-700 font-bold dark:text-indigo-300"
+                      className="rounded-full bg-slate-100 px-2 text-[12px] font-semibold text-slate-700 dark:bg-slate-800 dark:text-slate-200"
                     >
                       #{tag}
                     </span>
                   ))}
                 </div>
 
-                <button
-                  type="button"
-                  onClick={() => onSelectProject(project.slug)}
-                  className="mt-4 flex w-full cursor-pointer items-center justify-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 py-2.5 text-sm font-semibold text-(--text-h) transition-all duration-500 ease-out group-hover:bg-[#c1d0ff] group-hover:text-black group-hover:border-[#c1d0ff] focus:outline-none dark:bg-[#1a1c2d] dark:border-slate-800"
-                >
+                <div className="mt-4 flex w-full items-center justify-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 py-2.5 text-sm font-semibold text-(--text-h) transition-all duration-500 ease-out group-hover:border-[#c1d0ff] group-hover:bg-[#c1d0ff] group-hover:text-black dark:border-slate-800 dark:bg-[#1a1c2d]">
                   상세 보기
                   <ArrowRight className="h-4 w-4 transform transition-transform duration-500 ease-out group-hover:translate-x-0.5" />
-                </button>
+                </div>
               </article>
             ))}
           </div>

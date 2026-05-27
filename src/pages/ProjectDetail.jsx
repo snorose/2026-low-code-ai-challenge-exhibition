@@ -54,7 +54,7 @@ function ProjectDetail({ project, onBack }) {
         <div className="mx-auto w-full max-w-(--layout-max-width) px-5 min-[561px]:px-8 min-[901px]:px-10">
           <button
             type="button"
-            className="neo-btn-secondary mb-8 py-1.5 px-4 text-xs min-[901px]:text-sm flex cursor-pointer items-center gap-1.5"
+            className="neo-btn-secondary mb-8 py-1.5 px-4 text-sm flex cursor-pointer items-center gap-1.5"
             onClick={onBack}
           >
             <ArrowLeft className="h-3.5 w-3.5" />
@@ -62,11 +62,18 @@ function ProjectDetail({ project, onBack }) {
           </button>
           <div className="relative z-1 grid grid-cols-1 gap-8 min-[901px]:grid-cols-[1.15fr_0.85fr] min-[901px]:items-center">
             <div className="max-w-205">
-              <span
-                className={`inline-flex items-center rounded-full px-3 py-1 text-sm min-[901px]:text-base font-bold ${getAwardStyle(project.award)}`}
-              >
-                {getAwardLabelKo(project.award)}
-              </span>
+              <div className="flex flex-wrap items-center gap-2">
+                <span
+                  className={`inline-flex items-center rounded-full px-3 py-1 text-sm min-[901px]:text-base font-bold ${getAwardStyle(project.award)}`}
+                >
+                  {getAwardLabelKo(project.award)}
+                </span>
+                {project.teamName ? (
+                  <span className="inline-flex items-center rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-sm min-[901px]:text-base font-semibold text-indigo-800 dark:border-indigo-800/70 dark:bg-indigo-950/40 dark:text-indigo-200">
+                    {project.teamName} 팀
+                  </span>
+                ) : null}
+              </div>
               <h1
                 id="project-title"
                 className="mt-4 mb-2 text-3xl font-extrabold text-(--text-h) min-[561px]:text-4xl min-[901px]:text-5xl leading-none"
@@ -76,7 +83,7 @@ function ProjectDetail({ project, onBack }) {
               <p className="m-0 mb-4 text-base font-bold text-indigo-600 dark:text-indigo-400 min-[561px]:text-lg">
                 {project.subtitle}
               </p>
-              <p className="max-w-180 text-sm leading-[1.7] text-(--text) [word-break:keep-all] [overflow-wrap:normal]">
+              <p className="max-w-180 text-sm leading-[1.7] text-(--text) break-keep wrap-normal">
                 {project.summary}
               </p>
               <div
@@ -85,7 +92,7 @@ function ProjectDetail({ project, onBack }) {
               >
                 {project.tags.map((tag) => (
                   <span
-                    className="inline-flex min-h-8 items-center rounded-full border border-slate-300 bg-slate-50 px-3.5 py-0.5 text-xs min-[901px]:text-sm font-bold text-slate-800 dark:bg-[#1a1c2d] dark:border-slate-700 dark:text-slate-100"
+                    className="inline-flex min-h-8 items-center rounded-full border border-slate-300 bg-slate-50 px-3.5 py-0.5 text-sm font-bold text-slate-800 dark:bg-[#1a1c2d] dark:border-slate-700 dark:text-slate-100"
                     key={tag}
                   >
                     #{tag}
@@ -108,31 +115,41 @@ function ProjectDetail({ project, onBack }) {
       </section>
 
       <section
-        className="box-border border-b border-(--border) bg-slate-50/30 py-5.5 dark:bg-slate-950/10 min-[561px]:py-8"
+        className="box-border border-b border-(--border) bg-slate-50/30 py-6 dark:bg-slate-950/10 min-[561px]:py-10 min-[901px]:py-14"
         aria-label="프로젝트 핵심 설명"
       >
-        <div className="mx-auto grid w-full max-w-(--layout-max-width) grid-cols-1 gap-6 px-5 min-[561px]:px-8 min-[901px]:grid-cols-3 min-[901px]:px-10">
-          {sections.map((section) => (
-            <article
-              className={`box-border flex flex-col rounded-xl border border-slate-100 p-6 shadow-sm transition-all duration-500 ease-out hover:-translate-y-0.5 hover:shadow-md dark:border-slate-800 ${section.bgClass}`}
-              key={section.title}
-            >
-              <div className="mb-3.5 flex items-center justify-between">
-                <span className="text-xs min-[901px]:text-sm font-bold tracking-wider text-indigo-500 uppercase dark:text-indigo-400">
-                  {section.eyebrow}
-                </span>
-                <span className="flex items-center" aria-hidden="true">
-                  {section.icon}
-                </span>
-              </div>
-              <h2 className="m-0 mb-3 text-lg font-bold text-(--text-h)">
-                {section.title}
-              </h2>
-              <p className="text-[13.5px] min-[901px]:text-sm leading-[1.7] text-(--text) [word-break:keep-all] [overflow-wrap:normal]">
-                {section.body}
-              </p>
-            </article>
-          ))}
+        <div className="mx-auto w-full max-w-(--layout-max-width) px-5 min-[561px]:px-8 min-[901px]:px-10">
+          <span className="text-sm font-bold tracking-wider text-indigo-500 uppercase dark:text-indigo-400">
+            Project Overview
+          </span>
+          <h2 className="m-0 mt-1.5 mb-8 text-2xl font-bold text-(--text-h) min-[561px]:text-3xl flex items-center gap-2.5">
+            <BookOpen
+              className="h-7 w-7 text-indigo-500 dark:text-indigo-400 shrink-0"
+              aria-hidden="true"
+            />
+            프로젝트 개요
+          </h2>
+
+          <div className="grid grid-cols-1 gap-6 min-[901px]:grid-cols-3">
+            {sections.map((section) => (
+              <article
+                className={`box-border flex flex-col rounded-xl border border-slate-100 p-6 shadow-sm transition-all duration-500 ease-out hover:-translate-y-0.5 hover:shadow-md dark:border-slate-800 ${section.bgClass}`}
+                key={section.title}
+              >
+                <div className="mb-3 flex items-center justify-between gap-3">
+                  <h3 className="m-0 text-lg font-bold text-(--text-h)">
+                    {section.title}
+                  </h3>
+                  <span className="flex items-center" aria-hidden="true">
+                    {section.icon}
+                  </span>
+                </div>
+                <p className="text-sm leading-[1.7] text-(--text) break-keep wrap-normal">
+                  {section.body}
+                </p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -141,7 +158,7 @@ function ProjectDetail({ project, onBack }) {
         aria-labelledby="features-title"
       >
         <div className="mx-auto w-full max-w-(--layout-max-width) px-5 min-[561px]:px-8 min-[901px]:px-10">
-          <span className="text-xs min-[901px]:text-sm font-bold tracking-wider text-indigo-500 uppercase dark:text-indigo-400">
+          <span className="text-sm font-bold tracking-wider text-indigo-500 uppercase dark:text-indigo-400">
             Core Features
           </span>
           <h2
@@ -152,7 +169,7 @@ function ProjectDetail({ project, onBack }) {
               className="h-7 w-7 text-indigo-500 dark:text-indigo-400 shrink-0"
               aria-hidden="true"
             />
-            프로젝트 핵심 기능
+            프로젝트 주요 기능
           </h2>
           <div className="grid grid-cols-1 gap-6 min-[901px]:grid-cols-2">
             {project.features.map((feature, idx) => (
@@ -161,14 +178,14 @@ function ProjectDetail({ project, onBack }) {
                 key={feature.title}
               >
                 <div className="mb-3 flex items-center gap-3">
-                  <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#c1d0ff]/70 text-xs min-[901px]:text-sm font-bold text-indigo-950">
+                  <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#c1d0ff]/70 text-sm font-bold text-indigo-950">
                     {idx + 1}
                   </span>
                   <h3 className="m-0 text-base font-bold text-(--text-h) transition-colors duration-500 ease-out group-hover:text-indigo-500">
                     {feature.title}
                   </h3>
                 </div>
-                <p className="text-[13.5px] min-[901px]:text-sm leading-[1.65] text-(--text) [word-break:keep-all] [overflow-wrap:normal]">
+                <p className="text-sm leading-[1.65] text-(--text) break-keep wrap-normal">
                   {feature.description}
                 </p>
               </article>
@@ -183,7 +200,7 @@ function ProjectDetail({ project, onBack }) {
       >
         <div className="mx-auto grid w-full max-w-(--layout-max-width) grid-cols-1 items-center gap-8 px-5 min-[561px]:px-8 min-[901px]:grid-cols-[0.8fr_1.2fr] min-[901px]:px-10">
           <div>
-            <span className="text-xs min-[901px]:text-sm font-bold tracking-wider text-indigo-500 uppercase dark:text-indigo-400">
+            <span className="text-sm font-bold tracking-wider text-indigo-500 uppercase dark:text-indigo-400">
               Interactive Demo
             </span>
             <h2
@@ -196,12 +213,12 @@ function ProjectDetail({ project, onBack }) {
               />
               데모 영상
             </h2>
-            <p className="text-sm leading-[1.7] text-(--text) [word-break:keep-all] [overflow-wrap:normal]">
+            <p className="text-sm leading-[1.7] text-(--text) break-keep wrap-normal">
               {project.demo.description}
             </p>
             <div className="mt-5 flex items-center gap-2">
               <span className="h-2 w-2 animate-pulse rounded-full bg-red-600"></span>
-              <span className="text-xs min-[901px]:text-sm font-bold text-slate-500">
+              <span className="text-sm font-bold text-slate-500">
                 YouTube Embed Placeholder Mode
               </span>
             </div>
@@ -222,11 +239,11 @@ function ProjectDetail({ project, onBack }) {
               <strong className="text-base font-bold tracking-tight">
                 {project.demo.title}
               </strong>
-              <small className="text-[11px] min-[901px]:text-sm text-slate-400 max-w-72">
+              <small className="text-sm text-slate-400 max-w-72">
                 추후 유튜브 링크 연동 시 실시간 영상 인프라가 배포될 예정입니다.
               </small>
 
-              <div className="absolute bottom-0 inset-x-0 bg-black/85 px-4 py-2 flex items-center gap-3 text-[10px] min-[901px]:text-sm font-mono text-slate-400">
+              <div className="absolute bottom-0 inset-x-0 bg-black/85 px-4 py-2 flex items-center gap-3 text-sm font-mono text-slate-400">
                 <span>▶</span>
                 <div className="h-1 flex-1 rounded bg-slate-700 overflow-hidden">
                   <div className="h-full w-1/3 bg-[#c1d0ff] rounded"></div>
@@ -246,8 +263,8 @@ function ProjectDetail({ project, onBack }) {
         aria-labelledby="team-title"
       >
         <div className="mx-auto w-full max-w-(--layout-max-width) px-5 min-[561px]:px-8 min-[901px]:px-10">
-          <span className="text-xs min-[901px]:text-sm font-bold tracking-wider text-indigo-500 uppercase dark:text-indigo-400">
-            Exhibition Builders
+          <span className="text-sm font-bold tracking-wider text-indigo-500 uppercase dark:text-indigo-400">
+            Team Members
           </span>
           <h2
             id="team-title"
@@ -257,33 +274,29 @@ function ProjectDetail({ project, onBack }) {
               className="h-7 w-7 text-indigo-500 dark:text-indigo-400 shrink-0"
               aria-hidden="true"
             />
-            프로젝트 메이커스
+            팀원 소개
           </h2>
           <div className="grid grid-cols-1 gap-6 min-[561px]:grid-cols-2">
             {project.members.map((member) => (
               <article
-                className="box-border flex flex-col items-start gap-4 rounded-xl border border-slate-100 bg-white p-6 shadow-sm transition-all duration-500 ease-out hover:-translate-y-0.5 hover:shadow-md dark:bg-[#14151e] dark:border-slate-800"
+                className="box-border flex flex-col items-start gap-2 rounded-xl border border-slate-100 bg-white p-6 shadow-sm transition-all duration-500 ease-out hover:-translate-y-0.5 hover:shadow-md dark:bg-[#14151e] dark:border-slate-800"
                 key={member.name}
               >
-                <div className="flex items-center gap-4">
-                  <div
-                    className="grid h-10 w-10 place-items-center rounded-full bg-[#c1d0ff]/70 text-sm font-bold text-indigo-950"
-                    aria-hidden="true"
-                  >
-                    {member.name.slice(0, 1)}
-                  </div>
-                  <div>
-                    <h3 className="m-0 text-base font-bold text-(--text-h)">
-                      {member.name}
-                    </h3>
-                    <span className="inline-block mt-0.5 rounded bg-indigo-50/50 px-2 py-0.5 text-[10px] min-[901px]:text-sm font-bold text-indigo-700 dark:bg-indigo-950/20 dark:text-indigo-300">
+                <div className="flex items-center gap-2">
+                  <h3 className="m-0 text-base font-bold text-(--text-h)">
+                    {member.name}
+                  </h3>
+                  {member.role ? (
+                    <span className="inline-block mt-0.5 rounded-full border border-indigo-200 bg-indigo-50 px-2 py-0.5 text-xs font-semibold text-indigo-800 shadow-[0_1px_0_rgba(79,70,229,0.08)] dark:border-indigo-800/70 dark:bg-indigo-950/40 dark:text-indigo-200">
                       {member.role}
                     </span>
-                  </div>
+                  ) : null}
                 </div>
-                <p className="text-[13px] min-[901px]:text-sm leading-[1.6] text-(--text) [word-break:keep-all] [overflow-wrap:normal]">
-                  {member.description}
-                </p>
+                {member.description ? (
+                  <p className="text-sm leading-[1.6] text-(--text) break-keep wrap-normal">
+                    {member.description}
+                  </p>
+                ) : null}
               </article>
             ))}
           </div>
@@ -295,7 +308,7 @@ function ProjectDetail({ project, onBack }) {
         aria-labelledby="references-title"
       >
         <div className="mx-auto w-full max-w-(--layout-max-width) px-5 min-[561px]:px-8 min-[901px]:px-10">
-          <span className="text-xs min-[901px]:text-sm font-bold tracking-wider text-indigo-500 uppercase dark:text-indigo-400">
+          <span className="text-sm font-bold tracking-wider text-indigo-500 uppercase dark:text-indigo-400">
             Reference Materials
           </span>
           <h2
@@ -320,11 +333,11 @@ function ProjectDetail({ project, onBack }) {
                   <Presentation className="h-5 w-5" aria-hidden="true" />
                 </span>
                 <div>
-                  <h3 className="m-0 text-sm font-bold text-(--text-h) transition-colors duration-500 ease-out group-hover:text-indigo-500 dark:group-hover:text-indigo-400">
+                  <h3 className="m-0 text-md font-bold text-(--text-h) transition-colors duration-500 ease-out group-hover:text-indigo-500 dark:group-hover:text-indigo-400">
                     PPT 발표 자료
                   </h3>
-                  <p className="mt-0.5 text-xs min-[901px]:text-sm text-(--text)">
-                    기획서 및 프로젝트 핵심 발표 자료
+                  <p className="mt-0.5 text-sm text-(--text)">
+                    기획서 및 프로젝트 발표 자료
                   </p>
                 </div>
               </div>
@@ -342,10 +355,10 @@ function ProjectDetail({ project, onBack }) {
                   <Globe className="h-5 w-5" aria-hidden="true" />
                 </span>
                 <div>
-                  <h3 className="m-0 text-sm font-bold text-(--text-h) transition-colors duration-500 ease-out group-hover:text-indigo-500 dark:group-hover:text-indigo-400">
+                  <h3 className="m-0 text-md font-bold text-(--text-h) transition-colors duration-500 ease-out group-hover:text-indigo-500 dark:group-hover:text-indigo-400">
                     서비스 배포 링크
                   </h3>
-                  <p className="mt-0.5 text-xs min-[901px]:text-sm text-(--text)">
+                  <p className="mt-0.5 text-sm text-(--text)">
                     실제 서비스 데모 및 프로덕션 확인
                   </p>
                 </div>
