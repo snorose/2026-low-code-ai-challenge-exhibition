@@ -4,6 +4,13 @@ import upstageLogo from "@/assets/upstage-logo.svg";
 import { ArrowRight } from "lucide-react";
 
 function ProjectList({ projects, onSelectProject }) {
+  const handleProjectCardKeyDown = (event, slug) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      onSelectProject(slug);
+    }
+  };
+
   return (
     <main className="mx-auto w-full text-left relative">
       <section className="full-bleed relative overflow-hidden border-b border-(--border) bg-[#c1d0ff] text-black pt-18 pb-10 min-[561px]:pt-24 min-[561px]:pb-14 min-[901px]:pt-30 min-[901px]:pb-16 flex flex-col justify-center select-none">
@@ -61,7 +68,7 @@ function ProjectList({ projects, onSelectProject }) {
               수상 프로젝트
             </h2>
             <p className="text-sm min-[901px]:text-base text-(--text)">
-              상세보기를 클릭하여 프로젝트 상세 페이지로 이동해보세요.
+              프로젝트 카드를 선택하여 상세 페이지로 이동해보세요.
             </p>
           </div>
 
@@ -69,7 +76,14 @@ function ProjectList({ projects, onSelectProject }) {
             {projects.map((project) => (
               <article
                 key={project.id}
-                className="group flex flex-col rounded-xl border border-slate-100 bg-white p-6 text-left shadow-sm transition-all duration-500 ease-out hover:-translate-y-0.5 hover:shadow-lg dark:border-slate-800 dark:bg-[#14151e]"
+                role="button"
+                tabIndex={0}
+                aria-label={`${project.title} 상세 페이지로 이동`}
+                onClick={() => onSelectProject(project.slug)}
+                onKeyDown={(event) =>
+                  handleProjectCardKeyDown(event, project.slug)
+                }
+                className="group flex cursor-pointer flex-col rounded-xl border border-slate-100 bg-white p-6 text-left shadow-sm transition-all duration-500 ease-out hover:-translate-y-0.5 hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#879cff] focus-visible:ring-offset-2 focus-visible:ring-offset-(--bg) dark:border-slate-800 dark:bg-[#14151e]"
               >
                 <div className="mb-3.5 flex flex-wrap items-center justify-between gap-2">
                   <span
@@ -100,14 +114,12 @@ function ProjectList({ projects, onSelectProject }) {
                   ))}
                 </div>
 
-                <button
-                  type="button"
-                  onClick={() => onSelectProject(project.slug)}
-                  className="mt-4 flex w-full cursor-pointer items-center justify-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 py-2.5 text-sm font-semibold text-(--text-h) transition-all duration-500 ease-out group-hover:bg-[#c1d0ff] group-hover:text-black group-hover:border-[#c1d0ff] focus:outline-none dark:bg-[#1a1c2d] dark:border-slate-800"
+                <div
+                  className="mt-4 flex w-full items-center justify-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 py-2.5 text-sm font-semibold text-(--text-h) transition-all duration-500 ease-out group-hover:border-[#c1d0ff] group-hover:bg-[#c1d0ff] group-hover:text-black dark:border-slate-800 dark:bg-[#1a1c2d]"
                 >
                   상세 보기
                   <ArrowRight className="h-4 w-4 transform transition-transform duration-500 ease-out group-hover:translate-x-0.5" />
-                </button>
+                </div>
               </article>
             ))}
           </div>
