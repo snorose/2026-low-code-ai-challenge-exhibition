@@ -4,10 +4,10 @@ import upstageLogo from "@/assets/upstage-logo.svg";
 import { ArrowRight } from "lucide-react";
 
 function ProjectList({ projects, onSelectProject }) {
-  const handleProjectCardKeyDown = (event, slug) => {
+  const handleProjectCardKeyDown = (event, projectName) => {
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
-      onSelectProject(slug);
+      onSelectProject(projectName);
     }
   };
 
@@ -79,9 +79,9 @@ function ProjectList({ projects, onSelectProject }) {
                 role="button"
                 tabIndex={0}
                 aria-label={`${project.title} 상세 페이지로 이동`}
-                onClick={() => onSelectProject(project.slug)}
+                onClick={() => onSelectProject(project.routeName)}
                 onKeyDown={(event) =>
-                  handleProjectCardKeyDown(event, project.slug)
+                  handleProjectCardKeyDown(event, project.routeName)
                 }
                 className="group flex cursor-pointer flex-col rounded-xl border border-slate-100 bg-white p-6 text-left shadow-sm transition-all duration-500 ease-out hover:-translate-y-0.5 hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#879cff] focus-visible:ring-offset-2 focus-visible:ring-offset-(--bg) dark:border-slate-800 dark:bg-[#14151e]"
               >

@@ -57,7 +57,7 @@ function ProjectDetail({ project, onBack }) {
         <div className="mx-auto w-full max-w-(--layout-max-width) px-5 min-[561px]:px-8 min-[901px]:px-10">
           <button
             type="button"
-            className="neo-btn-secondary mb-8 py-1.5 px-4 text-sm flex cursor-pointer items-center gap-1.5"
+            className="neo-btn-secondary mb-4 py-1.5 text-sm flex cursor-pointer items-center gap-1.5"
             onClick={onBack}
           >
             <ArrowLeft className="h-3.5 w-3.5" />
@@ -85,7 +85,7 @@ function ProjectDetail({ project, onBack }) {
               </div>
               <h1
                 id="project-title"
-                className="mt-4 mb-2 text-3xl font-extrabold text-(--text-h) min-[561px]:text-4xl min-[901px]:text-5xl leading-none"
+                className="mt-4 mb-3 text-3xl font-extrabold leading-[1.12] text-(--text-h) min-[561px]:text-4xl min-[901px]:text-5xl min-[901px]:leading-[1.08]"
               >
                 {titleWords.map((word, index) => (
                   <span
@@ -98,14 +98,14 @@ function ProjectDetail({ project, onBack }) {
                   </span>
                 ))}
               </h1>
-              <p className="m-0 mb-4 text-base font-bold text-indigo-600 dark:text-indigo-400 min-[561px]:text-lg">
+              <p className="m-0 mb-3 text-base font-bold leading-[1.45] text-indigo-600 dark:text-indigo-400 min-[561px]:text-lg">
                 {project.subtitle}
               </p>
-              <p className="max-w-210 text-sm leading-[1.7] text-(--text) break-keep wrap-normal">
+              <p className="max-w-210 text-sm leading-[1.75] text-(--text) break-keep wrap-normal">
                 {project.summary}
               </p>
               {isLandscapePoster && project.posterSrc ? (
-                <div className="mt-8 flex w-full justify-start">
+                <div className="mt-4 flex w-full justify-start">
                   <ProjectPoster
                     title={project.title}
                     award={project.award}
@@ -338,7 +338,7 @@ function ProjectDetail({ project, onBack }) {
               className="h-7 w-7 text-indigo-500 dark:text-indigo-400 shrink-0"
               aria-hidden="true"
             />
-            리소스 및 참고 자료
+            프로젝트 자료
           </h2>
           <div className="mt-5 grid grid-cols-1 gap-4 min-[561px]:grid-cols-2 min-[901px]:grid-cols-3">
             <a
@@ -355,9 +355,6 @@ function ProjectDetail({ project, onBack }) {
                   <h3 className="m-0 text-md font-bold text-(--text-h) transition-colors duration-500 ease-out group-hover:text-indigo-500 dark:group-hover:text-indigo-400">
                     PPT 발표 자료
                   </h3>
-                  <p className="mt-0.5 text-sm text-(--text)">
-                    기획서 및 프로젝트 발표 자료
-                  </p>
                 </div>
               </div>
               <ExternalLink className="h-4 w-4 text-slate-400 transition-transform duration-500 ease-out group-hover:translate-x-0.5 dark:text-slate-500" />
@@ -377,9 +374,6 @@ function ProjectDetail({ project, onBack }) {
                   <h3 className="m-0 text-md font-bold text-(--text-h) transition-colors duration-500 ease-out group-hover:text-indigo-500 dark:group-hover:text-indigo-400">
                     서비스 배포 링크
                   </h3>
-                  <p className="mt-0.5 text-sm text-(--text)">
-                    실제 서비스 데모 및 프로덕션 확인
-                  </p>
                 </div>
               </div>
               <ExternalLink className="h-4 w-4 text-slate-400 transition-transform duration-500 ease-out group-hover:translate-x-0.5 dark:text-slate-500" />
@@ -404,9 +398,6 @@ function ProjectDetail({ project, onBack }) {
                     <h3 className="m-0 text-md font-bold text-(--text-h) transition-colors duration-500 ease-out group-hover:text-indigo-500 dark:group-hover:text-indigo-400">
                       포스터 이미지
                     </h3>
-                    <p className="mt-0.5 text-sm text-(--text)">
-                      프로젝트 포스터 원본 확인
-                    </p>
                   </div>
                 </div>
                 <ExternalLink className="h-4 w-4 text-slate-400 transition-transform duration-500 ease-out group-hover:translate-x-0.5 dark:text-slate-500" />

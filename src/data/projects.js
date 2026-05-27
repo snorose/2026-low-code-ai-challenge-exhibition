@@ -1,10 +1,10 @@
-import posterFit from "@/assets/posters/poster-fit.png";
-import posterHicosong from "@/assets/posters/poster-hicosong.png";
-import posterLocomoco from "@/assets/posters/poster-locomoco.png";
-import posterNailgent from "@/assets/posters/poster-nailgent.png";
-import posterSisam from "@/assets/posters/poster-sisam.png";
-import posterSokeukeu from "@/assets/posters/poster-sokeukeu.png";
-import posterSolarsystem from "@/assets/posters/poster-solarsystem.png";
+import posterFit from "@/assets/posters/poster-veriway.png";
+import posterHicosong from "@/assets/posters/poster-snolearning.png";
+import posterLocomoco from "@/assets/posters/poster-odiduji.png";
+import posterNailgent from "@/assets/posters/poster-reservia.png";
+import posterSisam from "@/assets/posters/poster-자소핏.png";
+import posterSokeukeu from "@/assets/posters/poster-reclaim.png";
+import posterSolarsystem from "@/assets/posters/poster-sol-mate.png";
 
 const posterImages = {
   fit: { src: posterFit, orientation: "landscape" },
@@ -139,24 +139,28 @@ const awardTeams = [
   },
   {
     title: "RECLAIM : AI가 찾아주는 소비자 권리",
+    routeName: "reclaim",
     teamName: "Sokeukeu",
     slug: "sokeukeu",
     award: "Top Excellence Award",
   },
   {
     title: "숙명여대 배리어프리 지도 VeriWay",
+    routeName: "veriway",
     teamName: "FIT",
     slug: "fit",
     award: "Excellence Award",
   },
   {
     title: "Reservia",
+    routeName: "reservia",
     teamName: "Nailgent",
     slug: "nailgent",
     award: "Excellence Award",
   },
   {
     title: "Sol-mate",
+    routeName: "sol-mate",
     teamName: "SolarSystem",
     slug: "solarsystem",
     award: "Popularity Award",
@@ -169,6 +173,7 @@ const awardTeams = [
   },
   {
     title: "어디두지",
+    routeName: "odiduji",
     teamName: "LOCOMOCO",
     slug: "locomoco",
     award: "Perfect Award",
@@ -665,6 +670,7 @@ export const projectRoutes = awardTeams.map((team, index) => {
     },
     id: team.slug,
     slug: team.slug,
+    routeName: team.routeName ?? team.title,
     title: team.title,
     teamName: team.teamName,
     award: team.award,
