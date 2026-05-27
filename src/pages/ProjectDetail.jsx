@@ -15,6 +15,8 @@ import {
 } from "lucide-react";
 
 function ProjectDetail({ project, onBack }) {
+  const titleWords = project.title.split(" ");
+
   const sections = [
     {
       eyebrow: "Project Introduction",
@@ -78,7 +80,16 @@ function ProjectDetail({ project, onBack }) {
                 id="project-title"
                 className="mt-4 mb-2 text-3xl font-extrabold text-(--text-h) min-[561px]:text-4xl min-[901px]:text-5xl leading-none"
               >
-                {project.title}
+                {titleWords.map((word, index) => (
+                  <span
+                    className={`inline-block ${
+                      index < titleWords.length - 1 ? "mr-[0.22em]" : ""
+                    }`}
+                    key={`${word}-${index}`}
+                  >
+                    {word}
+                  </span>
+                ))}
               </h1>
               <p className="m-0 mb-4 text-base font-bold text-indigo-600 dark:text-indigo-400 min-[561px]:text-lg">
                 {project.subtitle}
