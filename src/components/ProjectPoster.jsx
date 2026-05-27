@@ -1,6 +1,18 @@
 import { getAwardLabelKo } from "@/utils/award";
 
-export default function ProjectPoster({ title, award }) {
+export default function ProjectPoster({ title, award, posterSrc }) {
+  if (posterSrc) {
+    return (
+      <figure className="m-0 inline-block max-w-full overflow-hidden rounded-xl border border-slate-200 bg-white p-3 shadow-md dark:border-slate-800 dark:bg-[#14151e]">
+        <img
+          src={posterSrc}
+          alt={`${title} 포스터`}
+          className="block max-h-[34rem] max-w-full rounded-lg object-contain"
+        />
+      </figure>
+    );
+  }
+
   return (
     <div className="relative w-full aspect-4/5 rounded-xl overflow-hidden bg-[#c1d0ff] p-6 flex flex-col justify-between text-left select-none border border-slate-300/40 dark:border-slate-800 text-black shadow-md">
       <div className="relative z-1 flex flex-col gap-1">

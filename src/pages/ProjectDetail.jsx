@@ -62,7 +62,7 @@ function ProjectDetail({ project, onBack }) {
             <ArrowLeft className="h-3.5 w-3.5" />
             목록으로 가기
           </button>
-          <div className="relative z-1 grid grid-cols-1 gap-8 min-[901px]:grid-cols-[1.15fr_0.85fr] min-[901px]:items-center">
+          <div className="relative z-1 grid grid-cols-1 gap-8 min-[901px]:grid-cols-[0.95fr_1.05fr] min-[901px]:items-center">
             <div className="max-w-205">
               <div className="flex flex-wrap items-center gap-2">
                 <span
@@ -100,10 +100,11 @@ function ProjectDetail({ project, onBack }) {
             </div>
 
             <div className="flex justify-center min-[901px]:justify-end">
-              <div className="group relative w-full max-w-72 transform transition-all duration-500 ease-out hover:scale-[1.01]">
+              <div className="relative flex w-full max-w-130 justify-center min-[901px]:justify-end">
                 <ProjectPoster
                   title={project.title}
                   award={project.award}
+                  posterSrc={project.posterSrc}
                 />
               </div>
             </div>
@@ -318,7 +319,7 @@ function ProjectDetail({ project, onBack }) {
             />
             리소스 및 참고 자료
           </h2>
-          <div className="mt-5 grid grid-cols-1 gap-4 min-[561px]:grid-cols-2">
+          <div className="mt-5 grid grid-cols-1 gap-4 min-[561px]:grid-cols-2 min-[901px]:grid-cols-3">
             <a
               href={project.references?.ppt || "#"}
               target="_blank"
@@ -362,6 +363,34 @@ function ProjectDetail({ project, onBack }) {
               </div>
               <ExternalLink className="h-4 w-4 text-slate-400 transition-transform duration-500 ease-out group-hover:translate-x-0.5 dark:text-slate-500" />
             </a>
+
+            {project.posterSrc ? (
+              <a
+                href={project.posterSrc}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center justify-between rounded-xl border border-slate-100 bg-white p-5 shadow-sm transition-all duration-500 ease-out hover:-translate-y-0.5 hover:shadow-md hover:border-indigo-200 dark:bg-[#14151e] dark:border-slate-800 dark:hover:border-indigo-900/50"
+              >
+                <div className="flex items-center gap-4">
+                  <span className="grid h-12 w-16 shrink-0 place-items-center overflow-hidden rounded-lg border border-slate-200 bg-white p-1 dark:border-slate-700">
+                    <img
+                      src={project.posterSrc}
+                      alt=""
+                      className="max-h-full max-w-full object-contain"
+                    />
+                  </span>
+                  <div>
+                    <h3 className="m-0 text-md font-bold text-(--text-h) transition-colors duration-500 ease-out group-hover:text-indigo-500 dark:group-hover:text-indigo-400">
+                      포스터 이미지
+                    </h3>
+                    <p className="mt-0.5 text-sm text-(--text)">
+                      프로젝트 포스터 원본 확인
+                    </p>
+                  </div>
+                </div>
+                <ExternalLink className="h-4 w-4 text-slate-400 transition-transform duration-500 ease-out group-hover:translate-x-0.5 dark:text-slate-500" />
+              </a>
+            ) : null}
           </div>
         </div>
       </section>

@@ -1,3 +1,21 @@
+import posterFit from "@/assets/posters/poster-fit.png";
+import posterHicosong from "@/assets/posters/poster-hicosong.png";
+import posterLocomoco from "@/assets/posters/poster-locomoco.png";
+import posterNailgent from "@/assets/posters/poster-nailgent.png";
+import posterSisam from "@/assets/posters/poster-sisam.png";
+import posterSokeukeu from "@/assets/posters/poster-sokeukeu.png";
+import posterSolarsystem from "@/assets/posters/poster-solarsystem.png";
+
+const posterImages = {
+  fit: posterFit,
+  hicosong: posterHicosong,
+  locomoco: posterLocomoco,
+  nailgent: posterNailgent,
+  sisam: posterSisam,
+  sokeukeu: posterSokeukeu,
+  solarsystem: posterSolarsystem,
+};
+
 const projects = [
   {
     subtitle:
@@ -620,6 +638,7 @@ export const projectRoutes = awardTeams.map((team, index) => {
     title: team.title,
     teamName: team.teamName,
     award: team.award,
+    posterSrc: posterImages[team.slug],
     demo: {
       title: "데모 영상 준비 중",
       description:
