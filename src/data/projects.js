@@ -470,7 +470,7 @@ const projectMembers = {
       description: "일정 관리, 포스터 제작 (개발 참여)",
     },
     {
-      name: "하지원",
+      name: "하지민",
       role: "컴퓨터과학전공",
       description: "프론트엔드 및 백엔드 개발 주축",
     },

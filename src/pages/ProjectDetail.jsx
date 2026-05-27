@@ -15,6 +15,8 @@ import {
 } from "lucide-react";
 
 function ProjectDetail({ project, onBack }) {
+  const titleWords = project.title.split(" ");
+
   const sections = [
     {
       eyebrow: "Project Introduction",
@@ -78,7 +80,16 @@ function ProjectDetail({ project, onBack }) {
                 id="project-title"
                 className="mt-4 mb-2 text-3xl font-extrabold text-(--text-h) min-[561px]:text-4xl min-[901px]:text-5xl leading-none"
               >
-                {project.title}
+                {titleWords.map((word, index) => (
+                  <span
+                    className={`inline-block ${
+                      index < titleWords.length - 1 ? "mr-[0.22em]" : ""
+                    }`}
+                    key={`${word}-${index}`}
+                  >
+                    {word}
+                  </span>
+                ))}
               </h1>
               <p className="m-0 mb-4 text-base font-bold text-indigo-600 dark:text-indigo-400 min-[561px]:text-lg">
                 {project.subtitle}
@@ -86,19 +97,6 @@ function ProjectDetail({ project, onBack }) {
               <p className="max-w-180 text-sm leading-[1.7] text-(--text) break-keep wrap-normal">
                 {project.summary}
               </p>
-              <div
-                className="mt-6 flex flex-wrap gap-2"
-                aria-label="프로젝트 키워드"
-              >
-                {project.tags.map((tag) => (
-                  <span
-                    className="inline-flex min-h-8 items-center rounded-full border border-slate-300 bg-slate-50 px-3.5 py-0.5 text-sm font-bold text-slate-800 dark:bg-[#1a1c2d] dark:border-slate-700 dark:text-slate-100"
-                    key={tag}
-                  >
-                    #{tag}
-                  </span>
-                ))}
-              </div>
             </div>
 
             <div className="flex justify-center min-[901px]:justify-end">
@@ -106,7 +104,6 @@ function ProjectDetail({ project, onBack }) {
                 <ProjectPoster
                   title={project.title}
                   award={project.award}
-                  tag={project.tags[0]}
                 />
               </div>
             </div>

@@ -1,6 +1,6 @@
 import { getAwardLabelKo } from "@/utils/award";
 
-export default function ProjectPoster({ title, award, tag }) {
+export default function ProjectPoster({ title, award }) {
   return (
     <div className="relative w-full aspect-4/5 rounded-xl overflow-hidden bg-[#c1d0ff] p-6 flex flex-col justify-between text-left select-none border border-slate-300/40 dark:border-slate-800 text-black shadow-md">
       <div className="relative z-1 flex flex-col gap-1">
@@ -28,7 +28,6 @@ export default function ProjectPoster({ title, award, tag }) {
           <span className="text-sm font-extrabold text-slate-900 bg-white/70 px-2 py-0.5 rounded">
             {getAwardLabelKo(award)}
           </span>
-          <span className="text-sm font-bold text-slate-600">#{tag}</span>
         </div>
       </div>
     </div>
