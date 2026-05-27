@@ -29,7 +29,7 @@ function ProjectList({ projects, onSelectProject }) {
 
           <div className="flex flex-wrap items-start min-[561px]:items-center gap-8 sm:gap-12 border-t border-black/10 pt-5 w-full">
             <div className="flex flex-col gap-1 text-left">
-              <span className="text-xs min-[901px]:text-base font-bold tracking-wider text-slate-700/60 uppercase select-none">
+              <span className="text-sm min-[901px]:text-base font-bold tracking-wider text-slate-700/60 uppercase select-none">
                 주관
               </span>
               <span className="text-sm min-[901px]:text-base font-bold text-slate-800">
@@ -37,7 +37,7 @@ function ProjectList({ projects, onSelectProject }) {
               </span>
             </div>
             <div className="flex flex-col gap-1 text-left">
-              <span className="text-xs min-[901px]:text-base font-bold tracking-wider text-slate-700/60 uppercase select-none">
+              <span className="text-sm min-[901px]:text-base font-bold tracking-wider text-slate-700/60 uppercase select-none">
                 파트너
               </span>
               <div className="flex items-center gap-4">
@@ -87,11 +87,11 @@ function ProjectList({ projects, onSelectProject }) {
               >
                 <div className="mb-3.5 flex flex-wrap items-center justify-between gap-2">
                   <span
-                    className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs min-[901px]:text-sm font-bold ${getAwardStyle(project.award)}`}
+                    className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-sm font-bold ${getAwardStyle(project.award)}`}
                   >
                     {getAwardLabelKo(project.award)}
                   </span>
-                  <span className="rounded-full bg-slate-100 px-2 py-0.5 text-xs min-[901px]:text-sm font-bold text-slate-700 dark:bg-slate-800 dark:text-slate-200">
+                  <span className="rounded-full bg-slate-100 px-2 py-0.5 text-sm font-bold text-slate-700 dark:bg-slate-800 dark:text-slate-200">
                     {project.tags[0]}
                   </span>
                 </div>
@@ -99,7 +99,7 @@ function ProjectList({ projects, onSelectProject }) {
                 <h3 className="m-0 mb-2.5 text-xl font-bold leading-[1.3] text-(--text-h) transition-colors duration-500 ease-out group-hover:text-(--accent)">
                   {project.title}
                 </h3>
-                <p className="mb-5 text-[13.5px] min-[901px]:text-sm leading-[1.6] text-(--text) line-clamp-3 [word-break:keep-all] [overflow-wrap:normal]">
+                <p className="mb-5 text-sm leading-[1.6] text-(--text) line-clamp-3 [word-break:keep-all] [overflow-wrap:normal]">
                   {project.summary}
                 </p>
 
@@ -107,16 +107,14 @@ function ProjectList({ projects, onSelectProject }) {
                   {project.tags.slice(1, 3).map((tag) => (
                     <span
                       key={tag}
-                      className="text-xs min-[901px]:text-sm text-indigo-700 font-bold dark:text-indigo-300"
+                      className="text-sm text-indigo-700 font-bold dark:text-indigo-300"
                     >
                       #{tag}
                     </span>
                   ))}
                 </div>
 
-                <div
-                  className="mt-4 flex w-full items-center justify-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 py-2.5 text-sm font-semibold text-(--text-h) transition-all duration-500 ease-out group-hover:border-[#c1d0ff] group-hover:bg-[#c1d0ff] group-hover:text-black dark:border-slate-800 dark:bg-[#1a1c2d]"
-                >
+                <div className="mt-4 flex w-full items-center justify-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 py-2.5 text-sm font-semibold text-(--text-h) transition-all duration-500 ease-out group-hover:border-[#c1d0ff] group-hover:bg-[#c1d0ff] group-hover:text-black dark:border-slate-800 dark:bg-[#1a1c2d]">
                   상세 보기
                   <ArrowRight className="h-4 w-4 transform transition-transform duration-500 ease-out group-hover:translate-x-0.5" />
                 </div>
