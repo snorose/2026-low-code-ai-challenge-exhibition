@@ -16,6 +16,7 @@ import {
 
 function ProjectDetail({ project, onBack }) {
   const titleWords = project.title.split(" ");
+  const isLandscapePoster = project.posterOrientation === "landscape";
 
   const sections = [
     {
@@ -62,8 +63,14 @@ function ProjectDetail({ project, onBack }) {
             <ArrowLeft className="h-3.5 w-3.5" />
             목록으로 가기
           </button>
-          <div className="relative z-1 grid grid-cols-1 gap-8 min-[901px]:grid-cols-[0.95fr_1.05fr] min-[901px]:items-center">
-            <div className="max-w-205">
+          <div
+            className={`relative z-1 grid grid-cols-1 gap-8 ${
+              isLandscapePoster
+                ? ""
+                : "min-[901px]:grid-cols-[1.35fr_0.65fr] min-[901px]:items-center"
+            }`}
+          >
+            <div className="max-w-none">
               <div className="flex flex-wrap items-center gap-2">
                 <span
                   className={`inline-flex items-center rounded-full px-3 py-1 text-sm min-[901px]:text-base font-bold ${getAwardStyle(project.award)}`}
@@ -94,20 +101,34 @@ function ProjectDetail({ project, onBack }) {
               <p className="m-0 mb-4 text-base font-bold text-indigo-600 dark:text-indigo-400 min-[561px]:text-lg">
                 {project.subtitle}
               </p>
-              <p className="max-w-180 text-sm leading-[1.7] text-(--text) break-keep wrap-normal">
+              <p className="max-w-210 text-sm leading-[1.7] text-(--text) break-keep wrap-normal">
                 {project.summary}
               </p>
+              {isLandscapePoster && project.posterSrc ? (
+                <div className="mt-8 flex w-full justify-start">
+                  <ProjectPoster
+                    title={project.title}
+                    award={project.award}
+                    posterSrc={project.posterSrc}
+                    posterOrientation={project.posterOrientation}
+                    placement="wide"
+                  />
+                </div>
+              ) : null}
             </div>
 
-            <div className="flex justify-center min-[901px]:justify-end">
-              <div className="relative flex w-full max-w-130 justify-center min-[901px]:justify-end">
-                <ProjectPoster
-                  title={project.title}
-                  award={project.award}
-                  posterSrc={project.posterSrc}
-                />
+            {!isLandscapePoster ? (
+              <div className="flex justify-center min-[901px]:justify-end">
+                <div className="relative flex w-full max-w-[36rem] justify-center min-[901px]:justify-end">
+                  <ProjectPoster
+                    title={project.title}
+                    award={project.award}
+                    posterSrc={project.posterSrc}
+                    posterOrientation={project.posterOrientation}
+                  />
+                </div>
               </div>
-            </div>
+            ) : null}
           </div>
         </div>
       </section>
