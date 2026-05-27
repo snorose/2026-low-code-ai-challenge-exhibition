@@ -29,6 +29,7 @@ export function useProjectRouter() {
   const navigateToList = () => {
     window.history.pushState({}, "", "/");
     setSelectedProjectId(null);
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
   };
 
   const navigateToProject = (projectName) => {
@@ -38,6 +39,7 @@ export function useProjectRouter() {
       `/projects/${encodeURIComponent(projectName)}`,
     );
     setSelectedProjectId(projectName);
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
   };
 
   return {
