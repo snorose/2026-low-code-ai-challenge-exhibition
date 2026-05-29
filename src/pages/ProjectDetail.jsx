@@ -29,10 +29,15 @@ function getYoutubeEmbedUrl(url) {
   return null;
 }
 
+function hasResourceUrl(url) {
+  return Boolean(url && url !== "#");
+}
+
 function ProjectDetail({ project, onBack }) {
   const titleWords = project.title.split(" ");
   const isLandscapePoster = project.posterOrientation === "landscape";
   const embedUrl = getYoutubeEmbedUrl(project.demo?.url);
+  const hasDeployLink = hasResourceUrl(project.references?.deploy);
   const overviewSectionRef = useRef(null);
   const featuresSectionRef = useRef(null);
   const demoSectionRef = useRef(null);
@@ -445,31 +450,33 @@ function ProjectDetail({ project, onBack }) {
               <ExternalLink className="h-4 w-4 text-slate-400 transition-transform duration-500 ease-out group-hover:translate-x-0.5" />
             </a>
 
-            <a
-              href={project.references?.deploy || "#"}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() =>
-                trackProjectResource(
-                  project,
-                  "deploy",
-                  project.references?.deploy,
-                )
-              }
-              className="group flex items-center justify-between rounded-xl border border-slate-100 bg-white p-5 shadow-sm transition-all duration-500 ease-out hover:-translate-y-0.5 hover:shadow-md hover:border-indigo-200"
-            >
-              <div className="flex items-center gap-4">
-                <span className="grid h-10 w-10 place-items-center rounded-xl bg-indigo-50 text-indigo-500 transition-transform duration-500 ease-out group-hover:scale-[1.03]">
-                  <Globe className="h-5 w-5" aria-hidden="true" />
-                </span>
-                <div>
-                  <h3 className="m-0 text-md font-bold text-(--text-h) transition-colors duration-500 ease-out group-hover:text-indigo-500">
-                    서비스 링크
-                  </h3>
+            {hasDeployLink ? (
+              <a
+                href={project.references.deploy}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() =>
+                  trackProjectResource(
+                    project,
+                    "deploy",
+                    project.references.deploy,
+                  )
+                }
+                className="group flex items-center justify-between rounded-xl border border-slate-100 bg-white p-5 shadow-sm transition-all duration-500 ease-out hover:-translate-y-0.5 hover:shadow-md hover:border-indigo-200"
+              >
+                <div className="flex items-center gap-4">
+                  <span className="grid h-10 w-10 place-items-center rounded-xl bg-indigo-50 text-indigo-500 transition-transform duration-500 ease-out group-hover:scale-[1.03]">
+                    <Globe className="h-5 w-5" aria-hidden="true" />
+                  </span>
+                  <div>
+                    <h3 className="m-0 text-md font-bold text-(--text-h) transition-colors duration-500 ease-out group-hover:text-indigo-500">
+                      서비스 링크
+                    </h3>
+                  </div>
                 </div>
-              </div>
-              <ExternalLink className="h-4 w-4 text-slate-400 transition-transform duration-500 ease-out group-hover:translate-x-0.5" />
-            </a>
+                <ExternalLink className="h-4 w-4 text-slate-400 transition-transform duration-500 ease-out group-hover:translate-x-0.5" />
+              </a>
+            ) : null}
 
             {project.posterSrc ? (
               <a
