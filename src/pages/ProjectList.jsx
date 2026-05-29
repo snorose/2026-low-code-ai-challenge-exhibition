@@ -83,7 +83,7 @@ function ProjectList({ projects, onSelectProject }) {
                 onKeyDown={(event) =>
                   handleProjectCardKeyDown(event, project.routeName)
                 }
-                className="group flex cursor-pointer flex-col rounded-xl border border-slate-100 bg-white p-6 text-left shadow-sm transition-all duration-500 ease-out hover:-translate-y-0.5 hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#879cff] focus-visible:ring-offset-2 focus-visible:ring-offset-(--bg) dark:border-slate-800 dark:bg-[#14151e]"
+                className="group flex cursor-pointer flex-col rounded-xl border border-slate-100 bg-white p-6 text-left shadow-sm transition-all duration-500 ease-out hover:-translate-y-0.5 hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#879cff] focus-visible:ring-offset-2 focus-visible:ring-offset-(--bg)"
               >
                 <div className="mb-3.5 flex flex-wrap items-center justify-between gap-2">
                   <span
@@ -92,7 +92,7 @@ function ProjectList({ projects, onSelectProject }) {
                     {getAwardLabelKo(project.award)}
                   </span>
                   {project.teamName ? (
-                    <span className="rounded-full border border-indigo-200 bg-indigo-50 px-2.5 py-0.5 text-sm font-semibold text-indigo-800 dark:border-indigo-800/70 dark:bg-indigo-950/40 dark:text-indigo-200">
+                    <span className="rounded-full border border-indigo-200 bg-indigo-50 px-2.5 py-0.5 text-sm font-semibold text-indigo-800">
                       {project.teamName} 팀
                     </span>
                   ) : null}
@@ -105,7 +105,7 @@ function ProjectList({ projects, onSelectProject }) {
                   {project.summary}
                 </p>
 
-                <div className="mt-auto flex w-full items-center justify-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 py-2.5 text-sm font-semibold text-(--text-h) transition-all duration-500 ease-out group-hover:border-[#c1d0ff] group-hover:bg-[#c1d0ff] group-hover:text-black dark:border-slate-800 dark:bg-[#1a1c2d]">
+                <div className="mt-auto flex w-full items-center justify-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 py-2.5 text-sm font-semibold text-(--text-h) transition-all duration-500 ease-out group-hover:border-[#c1d0ff] group-hover:bg-[#c1d0ff] group-hover:text-black">
                   상세 보기
                   <ArrowRight className="h-4 w-4 transform transition-transform duration-500 ease-out group-hover:translate-x-0.5" />
                 </div>

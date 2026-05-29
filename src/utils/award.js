@@ -1,15 +1,15 @@
 export const getAwardStyle = (award) => {
   switch (award) {
     case "Grand Prize":
-      return "bg-amber-100 text-amber-900 dark:bg-amber-500/10 dark:text-amber-200";
+      return "bg-amber-100 text-amber-900";
     case "Top Excellence Award":
-      return "bg-rose-100 text-rose-900 dark:bg-rose-500/10 dark:text-rose-200";
+      return "bg-rose-100 text-rose-900";
     case "Excellence Award":
-      return "bg-indigo-100 text-indigo-900 dark:bg-indigo-500/10 dark:text-indigo-200";
+      return "bg-indigo-100 text-indigo-900";
     case "Perfect Award":
-      return "bg-teal-100 text-teal-900 dark:bg-teal-500/10 dark:text-teal-200";
+      return "bg-teal-100 text-teal-900";
     default:
-      return "bg-purple-100 text-purple-900 dark:bg-purple-500/10 dark:text-purple-200";
+      return "bg-purple-100 text-purple-900";
   }
 };
 

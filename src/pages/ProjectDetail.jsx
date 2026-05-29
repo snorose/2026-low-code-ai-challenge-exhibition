@@ -33,28 +33,28 @@ function ProjectDetail({ project, onBack }) {
       eyebrow: "Project Introduction",
       title: "프로젝트 소개",
       icon: (
-        <BookOpen className="h-5 w-5 text-indigo-500 dark:text-indigo-400" />
+        <BookOpen className="h-5 w-5 text-indigo-500" />
       ),
       body: project.intro,
-      bgClass: "bg-white dark:bg-[#14151e]",
+      bgClass: "bg-white",
     },
     {
       eyebrow: "Problem Statement",
       title: "문제 정의",
       icon: (
-        <AlertCircle className="h-5 w-5 text-rose-500 dark:text-rose-400" />
+        <AlertCircle className="h-5 w-5 text-rose-500" />
       ),
       body: project.problem,
-      bgClass: "bg-white dark:bg-[#14151e]",
+      bgClass: "bg-white",
     },
     {
       eyebrow: "Proposed Solution",
       title: "해결 방안",
       icon: (
-        <Sparkles className="h-5 w-5 text-emerald-500 dark:text-emerald-400" />
+        <Sparkles className="h-5 w-5 text-emerald-500" />
       ),
       body: project.solution,
-      bgClass: "bg-white dark:bg-[#14151e]",
+      bgClass: "bg-white",
     },
   ];
 
@@ -88,7 +88,7 @@ function ProjectDetail({ project, onBack }) {
                   {getAwardLabelKo(project.award)}
                 </span>
                 {project.teamName ? (
-                  <span className="inline-flex items-center rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-sm min-[901px]:text-base font-semibold text-indigo-800 dark:border-indigo-800/70 dark:bg-indigo-950/40 dark:text-indigo-200">
+                  <span className="inline-flex items-center rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-sm min-[901px]:text-base font-semibold text-indigo-800">
                     {project.teamName} 팀
                   </span>
                 ) : null}
@@ -108,7 +108,7 @@ function ProjectDetail({ project, onBack }) {
                   </span>
                 ))}
               </h1>
-              <p className="m-0 mb-3 text-base font-bold leading-[1.45] text-indigo-600 dark:text-indigo-400 min-[561px]:text-lg">
+              <p className="m-0 mb-3 text-base font-bold leading-[1.45] text-indigo-600 min-[561px]:text-lg">
                 {project.subtitle}
               </p>
               <p className="max-w-210 text-sm leading-[1.75] text-(--text) break-keep wrap-normal">
@@ -144,16 +144,16 @@ function ProjectDetail({ project, onBack }) {
       </section>
 
       <section
-        className="box-border border-b border-(--border) bg-slate-50/30 py-6 dark:bg-slate-950/10 min-[561px]:py-10 min-[901px]:py-14"
+        className="box-border border-b border-(--border) bg-slate-50/30 py-6 min-[561px]:py-10 min-[901px]:py-14"
         aria-label="프로젝트 핵심 설명"
       >
         <div className="mx-auto w-full max-w-(--layout-max-width) px-5 min-[561px]:px-8 min-[901px]:px-10">
-          <span className="text-sm font-bold tracking-wider text-indigo-500 uppercase dark:text-indigo-400">
+          <span className="text-sm font-bold tracking-wider text-indigo-500 uppercase">
             Project Overview
           </span>
           <h2 className="m-0 mt-1.5 mb-8 text-2xl font-bold text-(--text-h) min-[561px]:text-3xl flex items-center gap-2.5">
             <BookOpen
-              className="h-7 w-7 text-indigo-500 dark:text-indigo-400 shrink-0"
+              className="h-7 w-7 text-indigo-500 shrink-0"
               aria-hidden="true"
             />
             프로젝트 개요
@@ -162,7 +162,7 @@ function ProjectDetail({ project, onBack }) {
           <div className="grid grid-cols-1 gap-6 min-[901px]:grid-cols-3">
             {sections.map((section) => (
               <article
-                className={`box-border flex flex-col rounded-xl border border-slate-100 p-6 shadow-sm transition-all duration-500 ease-out hover:-translate-y-0.5 hover:shadow-md dark:border-slate-800 ${section.bgClass}`}
+                className={`box-border flex flex-col rounded-xl border border-slate-100 p-6 shadow-sm transition-all duration-500 ease-out hover:-translate-y-0.5 hover:shadow-md ${section.bgClass}`}
                 key={section.title}
               >
                 <div className="mb-3 flex items-center justify-between gap-3">
@@ -187,7 +187,7 @@ function ProjectDetail({ project, onBack }) {
         aria-labelledby="features-title"
       >
         <div className="mx-auto w-full max-w-(--layout-max-width) px-5 min-[561px]:px-8 min-[901px]:px-10">
-          <span className="text-sm font-bold tracking-wider text-indigo-500 uppercase dark:text-indigo-400">
+          <span className="text-sm font-bold tracking-wider text-indigo-500 uppercase">
             Core Features
           </span>
           <h2
@@ -195,7 +195,7 @@ function ProjectDetail({ project, onBack }) {
             className="m-0 mt-1.5 mb-8 text-2xl font-bold text-(--text-h) min-[561px]:text-3xl flex items-center gap-2.5"
           >
             <Cpu
-              className="h-7 w-7 text-indigo-500 dark:text-indigo-400 shrink-0"
+              className="h-7 w-7 text-indigo-500 shrink-0"
               aria-hidden="true"
             />
             프로젝트 주요 기능
@@ -203,7 +203,7 @@ function ProjectDetail({ project, onBack }) {
           <div className="grid grid-cols-1 gap-6 min-[901px]:grid-cols-2">
             {project.features.map((feature, idx) => (
               <article
-                className="group box-border rounded-xl border border-slate-100 bg-white p-6 shadow-sm transition-all duration-500 ease-out hover:-translate-y-0.5 hover:shadow-md dark:bg-[#14151e] dark:border-slate-800"
+                className="group box-border rounded-xl border border-slate-100 bg-white p-6 shadow-sm transition-all duration-500 ease-out hover:-translate-y-0.5 hover:shadow-md"
                 key={feature.title}
               >
                 <div className="mb-3 flex items-center gap-3">
@@ -229,7 +229,7 @@ function ProjectDetail({ project, onBack }) {
       >
         <div className="mx-auto grid w-full max-w-(--layout-max-width) grid-cols-1 items-center gap-8 px-5 min-[561px]:px-8 min-[901px]:grid-cols-[0.8fr_1.2fr] min-[901px]:px-10">
           <div>
-            <span className="text-sm font-bold tracking-wider text-indigo-500 uppercase dark:text-indigo-400">
+            <span className="text-sm font-bold tracking-wider text-indigo-500 uppercase">
               Interactive Demo
             </span>
             <h2
@@ -237,7 +237,7 @@ function ProjectDetail({ project, onBack }) {
               className="m-0 mt-1.5 mb-4 text-2xl font-bold text-(--text-h) min-[561px]:text-3xl flex items-center gap-2.5"
             >
               <PlayCircle
-                className="h-7 w-7 text-indigo-500 dark:text-indigo-400 shrink-0"
+                className="h-7 w-7 text-indigo-500 shrink-0"
                 aria-hidden="true"
               />
               데모 영상
@@ -294,7 +294,7 @@ function ProjectDetail({ project, onBack }) {
         aria-labelledby="team-title"
       >
         <div className="mx-auto w-full max-w-(--layout-max-width) px-5 min-[561px]:px-8 min-[901px]:px-10">
-          <span className="text-sm font-bold tracking-wider text-indigo-500 uppercase dark:text-indigo-400">
+          <span className="text-sm font-bold tracking-wider text-indigo-500 uppercase">
             Team Members
           </span>
           <h2
@@ -302,7 +302,7 @@ function ProjectDetail({ project, onBack }) {
             className="m-0 mt-1.5 mb-8 text-2xl font-bold text-(--text-h) min-[561px]:text-3xl flex items-center gap-2.5"
           >
             <Users
-              className="h-7 w-7 text-indigo-500 dark:text-indigo-400 shrink-0"
+              className="h-7 w-7 text-indigo-500 shrink-0"
               aria-hidden="true"
             />
             팀원 소개
@@ -310,7 +310,7 @@ function ProjectDetail({ project, onBack }) {
           <div className="grid grid-cols-1 gap-6 min-[561px]:grid-cols-2">
             {project.members.map((member) => (
               <article
-                className="box-border flex flex-col items-start gap-2 rounded-xl border border-slate-100 bg-white p-6 shadow-sm transition-all duration-500 ease-out hover:-translate-y-0.5 hover:shadow-md dark:bg-[#14151e] dark:border-slate-800"
+                className="box-border flex flex-col items-start gap-2 rounded-xl border border-slate-100 bg-white p-6 shadow-sm transition-all duration-500 ease-out hover:-translate-y-0.5 hover:shadow-md"
                 key={member.name}
               >
                 <div className="flex items-center gap-2">
@@ -318,7 +318,7 @@ function ProjectDetail({ project, onBack }) {
                     {member.name}
                   </h3>
                   {member.role ? (
-                    <span className="inline-block mt-0.5 rounded-full border border-indigo-200 bg-indigo-50 px-2 py-0.5 text-xs font-semibold text-indigo-800 shadow-[0_1px_0_rgba(79,70,229,0.08)] dark:border-indigo-800/70 dark:bg-indigo-950/40 dark:text-indigo-200">
+                    <span className="inline-block mt-0.5 rounded-full border border-indigo-200 bg-indigo-50 px-2 py-0.5 text-xs font-semibold text-indigo-800 shadow-[0_1px_0_rgba(79,70,229,0.08)]">
                       {member.role}
                     </span>
                   ) : null}
@@ -339,7 +339,7 @@ function ProjectDetail({ project, onBack }) {
         aria-labelledby="references-title"
       >
         <div className="mx-auto w-full max-w-(--layout-max-width) px-5 min-[561px]:px-8 min-[901px]:px-10">
-          <span className="text-sm font-bold tracking-wider text-indigo-500 uppercase dark:text-indigo-400">
+          <span className="text-sm font-bold tracking-wider text-indigo-500 uppercase">
             Reference Materials
           </span>
           <h2
@@ -347,7 +347,7 @@ function ProjectDetail({ project, onBack }) {
             className="m-0 mt-1.5 mb-6 text-2xl font-bold text-(--text-h) min-[561px]:text-3xl flex items-center gap-2.5"
           >
             <FolderHeart
-              className="h-7 w-7 text-indigo-500 dark:text-indigo-400 shrink-0"
+              className="h-7 w-7 text-indigo-500 shrink-0"
               aria-hidden="true"
             />
             프로젝트 자료
@@ -357,38 +357,38 @@ function ProjectDetail({ project, onBack }) {
               href={project.references?.ppt || "#"}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center justify-between rounded-xl border border-slate-100 bg-white p-5 shadow-sm transition-all duration-500 ease-out hover:-translate-y-0.5 hover:shadow-md hover:border-indigo-200 dark:bg-[#14151e] dark:border-slate-800 dark:hover:border-indigo-900/50"
+              className="group flex items-center justify-between rounded-xl border border-slate-100 bg-white p-5 shadow-sm transition-all duration-500 ease-out hover:-translate-y-0.5 hover:shadow-md hover:border-indigo-200"
             >
               <div className="flex items-center gap-4">
-                <span className="grid h-10 w-10 place-items-center rounded-xl bg-orange-50 text-orange-500 transition-transform duration-500 ease-out group-hover:scale-[1.03] dark:bg-orange-950/20 dark:text-orange-400">
+                <span className="grid h-10 w-10 place-items-center rounded-xl bg-orange-50 text-orange-500 transition-transform duration-500 ease-out group-hover:scale-[1.03]">
                   <Presentation className="h-5 w-5" aria-hidden="true" />
                 </span>
                 <div>
-                  <h3 className="m-0 text-md font-bold text-(--text-h) transition-colors duration-500 ease-out group-hover:text-indigo-500 dark:group-hover:text-indigo-400">
+                  <h3 className="m-0 text-md font-bold text-(--text-h) transition-colors duration-500 ease-out group-hover:text-indigo-500">
                     PPT 발표 자료
                   </h3>
                 </div>
               </div>
-              <ExternalLink className="h-4 w-4 text-slate-400 transition-transform duration-500 ease-out group-hover:translate-x-0.5 dark:text-slate-500" />
+              <ExternalLink className="h-4 w-4 text-slate-400 transition-transform duration-500 ease-out group-hover:translate-x-0.5" />
             </a>
 
             <a
               href={project.references?.deploy || "#"}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center justify-between rounded-xl border border-slate-100 bg-white p-5 shadow-sm transition-all duration-500 ease-out hover:-translate-y-0.5 hover:shadow-md hover:border-indigo-200 dark:bg-[#14151e] dark:border-slate-800 dark:hover:border-indigo-900/50"
+              className="group flex items-center justify-between rounded-xl border border-slate-100 bg-white p-5 shadow-sm transition-all duration-500 ease-out hover:-translate-y-0.5 hover:shadow-md hover:border-indigo-200"
             >
               <div className="flex items-center gap-4">
-                <span className="grid h-10 w-10 place-items-center rounded-xl bg-indigo-50 text-indigo-500 transition-transform duration-500 ease-out group-hover:scale-[1.03] dark:bg-indigo-950/20 dark:text-indigo-400">
+                <span className="grid h-10 w-10 place-items-center rounded-xl bg-indigo-50 text-indigo-500 transition-transform duration-500 ease-out group-hover:scale-[1.03]">
                   <Globe className="h-5 w-5" aria-hidden="true" />
                 </span>
                 <div>
-                  <h3 className="m-0 text-md font-bold text-(--text-h) transition-colors duration-500 ease-out group-hover:text-indigo-500 dark:group-hover:text-indigo-400">
+                  <h3 className="m-0 text-md font-bold text-(--text-h) transition-colors duration-500 ease-out group-hover:text-indigo-500">
                     서비스 배포 링크
                   </h3>
                 </div>
               </div>
-              <ExternalLink className="h-4 w-4 text-slate-400 transition-transform duration-500 ease-out group-hover:translate-x-0.5 dark:text-slate-500" />
+              <ExternalLink className="h-4 w-4 text-slate-400 transition-transform duration-500 ease-out group-hover:translate-x-0.5" />
             </a>
 
             {project.posterSrc ? (
@@ -396,10 +396,10 @@ function ProjectDetail({ project, onBack }) {
                 href={project.posterSrc}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center justify-between rounded-xl border border-slate-100 bg-white p-5 shadow-sm transition-all duration-500 ease-out hover:-translate-y-0.5 hover:shadow-md hover:border-indigo-200 dark:bg-[#14151e] dark:border-slate-800 dark:hover:border-indigo-900/50"
+                className="group flex items-center justify-between rounded-xl border border-slate-100 bg-white p-5 shadow-sm transition-all duration-500 ease-out hover:-translate-y-0.5 hover:shadow-md hover:border-indigo-200"
               >
                 <div className="flex items-center gap-4">
-                  <span className="grid h-12 w-16 shrink-0 place-items-center overflow-hidden rounded-lg border border-slate-200 bg-white p-1 dark:border-slate-700">
+                  <span className="grid h-12 w-16 shrink-0 place-items-center overflow-hidden rounded-lg border border-slate-200 bg-white p-1">
                     <img
                       src={project.posterSrc}
                       alt=""
@@ -407,12 +407,12 @@ function ProjectDetail({ project, onBack }) {
                     />
                   </span>
                   <div>
-                    <h3 className="m-0 text-md font-bold text-(--text-h) transition-colors duration-500 ease-out group-hover:text-indigo-500 dark:group-hover:text-indigo-400">
+                    <h3 className="m-0 text-md font-bold text-(--text-h) transition-colors duration-500 ease-out group-hover:text-indigo-500">
                       포스터 이미지
                     </h3>
                   </div>
                 </div>
-                <ExternalLink className="h-4 w-4 text-slate-400 transition-transform duration-500 ease-out group-hover:translate-x-0.5 dark:text-slate-500" />
+                <ExternalLink className="h-4 w-4 text-slate-400 transition-transform duration-500 ease-out group-hover:translate-x-0.5" />
               </a>
             ) : null}
           </div>
