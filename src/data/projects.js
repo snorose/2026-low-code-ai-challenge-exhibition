@@ -609,24 +609,37 @@ const projectMembers = {
 const projectReferences = {
   hicosong: {
     ppt: "https://drive.google.com/file/d/120wMMLLJ7pgKLvl7kRdkdp9rS9yApBCf/view?usp=sharing",
+    deploy: "https://2026-hackathon.snolearning.snorose.com/",
+    demoUrl: "https://youtu.be/BOPUQK6A5Qw",
   },
   sokeukeu: {
     ppt: "https://drive.google.com/file/d/1CyUxiQ0YDag1CrrKP9gv0E9OBsFfSdUO/view?usp=sharing",
+    deploy: "https://2026-hackathon.sokcc.snorose.com/",
+    demoUrl: "https://youtu.be/U3hj54VMplI",
   },
   fit: {
     ppt: "https://drive.google.com/file/d/1HHMCUkjtlDcOFdT_7sMtQzRqiW0OOGUA/view?usp=sharing",
+    deploy: "https://2026-hackathon.veriway.snorose.com/",
+    demoUrl: "https://youtu.be/I3rGADoDNWI",
   },
   nailgent: {
     ppt: "https://drive.google.com/file/d/1u3GX_CO0hxYS8mV8aOeqWCGe8OmoQk17/view?usp=sharing",
+    deploy: "https://reservia-five.vercel.app/",
+    demoUrl: "https://youtu.be/f83rPed78no",
   },
   solarsystem: {
     ppt: "https://drive.google.com/file/d/1RP0FNdroieTGxsZmGg4ydKXsg9MB2UA3/view?usp=sharing",
+    deploy: "https://2026-hackathon.solarsystem.snorose.com/",
+    demoUrl: "https://youtu.be/MNKhayWEzEQ",
   },
   sisam: {
     ppt: "https://drive.google.com/file/d/1xOkwO_EcLLDs5LfUTj2SwpLFYDHYATiO/view?usp=sharing",
+    demoUrl: "https://youtu.be/mSogE8WZW4g",
   },
   locomoco: {
     ppt: "https://drive.google.com/file/d/1qtsISoWAM2Vsv9bb0kejNH5YrNFtLSnW/view?usp=sharing",
+    deploy: "https://2026-hackathon.odiduji.snorose.com/",
+    demoUrl: "https://youtu.be/-bceSgxrOiA",
   },
 };
 
@@ -677,9 +690,7 @@ export const projectRoutes = awardTeams.map((team, index) => {
     posterSrc: poster?.src,
     posterOrientation: poster?.orientation,
     demo: {
-      title: "데모 영상 준비 중",
-      description:
-        "추후 유튜브 링크를 연결하면 이 영역에 영상 임베드 또는 썸네일이 표시될 예정입니다.",
+      url: projectReferences[team.slug]?.demoUrl ?? null,
     },
     members: teamMembers,
   };
