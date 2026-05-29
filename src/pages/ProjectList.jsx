@@ -1,13 +1,19 @@
 import { getAwardStyle, getAwardLabelKo } from "@/utils/award";
+import { trackSelectProject } from "@/utils/analytics";
 import snoroseLogo from "@/assets/snorose-logo.svg";
 import upstageLogo from "@/assets/upstage-logo.svg";
 import { ArrowRight } from "lucide-react";
 
 function ProjectList({ projects, onSelectProject }) {
-  const handleProjectCardKeyDown = (event, projectName) => {
+  const handleSelectProject = (project) => {
+    trackSelectProject(project);
+    onSelectProject(project.routeName);
+  };
+
+  const handleProjectCardKeyDown = (event, project) => {
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
-      onSelectProject(projectName);
+      handleSelectProject(project);
     }
   };
 
@@ -79,9 +85,9 @@ function ProjectList({ projects, onSelectProject }) {
                 role="button"
                 tabIndex={0}
                 aria-label={`${project.title} 상세 페이지로 이동`}
-                onClick={() => onSelectProject(project.routeName)}
+                onClick={() => handleSelectProject(project)}
                 onKeyDown={(event) =>
-                  handleProjectCardKeyDown(event, project.routeName)
+                  handleProjectCardKeyDown(event, project)
                 }
                 className="group flex cursor-pointer flex-col rounded-xl border border-slate-100 bg-white p-6 text-left shadow-sm transition-all duration-500 ease-out hover:-translate-y-0.5 hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#879cff] focus-visible:ring-offset-2 focus-visible:ring-offset-(--bg)"
               >

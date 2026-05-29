@@ -1,5 +1,11 @@
+import { useEffect, useRef } from "react";
 import { getAwardStyle, getAwardLabelKo } from "@/utils/award";
 import ProjectPoster from "@/components/ProjectPoster";
+import {
+  trackDemoVideo,
+  trackProjectResource,
+  trackProjectSectionView,
+} from "@/utils/analytics";
 import {
   ArrowLeft,
   BookOpen,
@@ -27,6 +33,13 @@ function ProjectDetail({ project, onBack }) {
   const titleWords = project.title.split(" ");
   const isLandscapePoster = project.posterOrientation === "landscape";
   const embedUrl = getYoutubeEmbedUrl(project.demo?.url);
+  const overviewSectionRef = useRef(null);
+  const featuresSectionRef = useRef(null);
+  const demoSectionRef = useRef(null);
+  const teamSectionRef = useRef(null);
+  const referencesSectionRef = useRef(null);
+  const trackedProjectKeyRef = useRef(null);
+  const trackedSectionsRef = useRef(new Set());
 
   const sections = [
     {
@@ -51,6 +64,59 @@ function ProjectDetail({ project, onBack }) {
       bgClass: "bg-white",
     },
   ];
+
+  useEffect(() => {
+    const projectKey = project.slug ?? project.id ?? project.routeName;
+
+    if (trackedProjectKeyRef.current !== projectKey) {
+      trackedProjectKeyRef.current = projectKey;
+      trackedSectionsRef.current = new Set();
+    }
+
+    if (
+      typeof window === "undefined" ||
+      typeof window.IntersectionObserver !== "function"
+    ) {
+      return undefined;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+
+          const sectionName = entry.target.dataset.analyticsSection;
+          if (!sectionName || trackedSectionsRef.current.has(sectionName)) {
+            return;
+          }
+
+          trackedSectionsRef.current.add(sectionName);
+          trackProjectSectionView(project, sectionName);
+          observer.unobserve(entry.target);
+        });
+      },
+      {
+        rootMargin: "0px 0px -20% 0px",
+        threshold: 0.35,
+      },
+    );
+
+    [
+      ["overview", overviewSectionRef.current],
+      ["features", featuresSectionRef.current],
+      ["demo", demoSectionRef.current],
+      ["team", teamSectionRef.current],
+      ["references", referencesSectionRef.current],
+    ].forEach(([sectionName, node]) => {
+      if (!node || trackedSectionsRef.current.has(sectionName)) return;
+      node.dataset.analyticsSection = sectionName;
+      observer.observe(node);
+    });
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [project]);
 
   return (
     <main className="mx-auto w-full text-left">
@@ -138,6 +204,7 @@ function ProjectDetail({ project, onBack }) {
       </section>
 
       <section
+        ref={overviewSectionRef}
         className="box-border border-b border-(--border) bg-slate-50/30 py-6 min-[561px]:py-10 min-[901px]:py-14"
         aria-label="프로젝트 핵심 설명"
       >
@@ -177,6 +244,7 @@ function ProjectDetail({ project, onBack }) {
       </section>
 
       <section
+        ref={featuresSectionRef}
         className="box-border border-b border-(--border) py-6 min-[561px]:py-10 min-[901px]:py-14"
         aria-labelledby="features-title"
       >
@@ -218,6 +286,7 @@ function ProjectDetail({ project, onBack }) {
       </section>
 
       <section
+        ref={demoSectionRef}
         className="box-border border-b border-(--border) py-6 min-[561px]:py-10 min-[901px]:py-14"
         aria-labelledby="demo-title"
       >
@@ -241,6 +310,7 @@ function ProjectDetail({ project, onBack }) {
                 href={project.demo.url}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackDemoVideo(project)}
                 className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-indigo-500 hover:text-indigo-400 transition-colors"
               >
                 YouTube에서 보기
@@ -284,6 +354,7 @@ function ProjectDetail({ project, onBack }) {
       </section>
 
       <section
+        ref={teamSectionRef}
         className="box-border border-b border-(--border) py-6 min-[561px]:py-10 min-[901px]:py-14"
         aria-labelledby="team-title"
       >
@@ -329,6 +400,7 @@ function ProjectDetail({ project, onBack }) {
       </section>
 
       <section
+        ref={referencesSectionRef}
         className="box-border py-6 min-[561px]:py-10 min-[901px]:py-14"
         aria-labelledby="references-title"
       >
@@ -351,6 +423,13 @@ function ProjectDetail({ project, onBack }) {
               href={project.references?.ppt || "#"}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() =>
+                trackProjectResource(
+                  project,
+                  "presentation",
+                  project.references?.ppt,
+                )
+              }
               className="group flex items-center justify-between rounded-xl border border-slate-100 bg-white p-5 shadow-sm transition-all duration-500 ease-out hover:-translate-y-0.5 hover:shadow-md hover:border-indigo-200"
             >
               <div className="flex items-center gap-4">
@@ -370,6 +449,13 @@ function ProjectDetail({ project, onBack }) {
               href={project.references?.deploy || "#"}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() =>
+                trackProjectResource(
+                  project,
+                  "deploy",
+                  project.references?.deploy,
+                )
+              }
               className="group flex items-center justify-between rounded-xl border border-slate-100 bg-white p-5 shadow-sm transition-all duration-500 ease-out hover:-translate-y-0.5 hover:shadow-md hover:border-indigo-200"
             >
               <div className="flex items-center gap-4">
@@ -390,6 +476,9 @@ function ProjectDetail({ project, onBack }) {
                 href={project.posterSrc}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() =>
+                  trackProjectResource(project, "poster", project.posterSrc)
+                }
                 className="group flex items-center justify-between rounded-xl border border-slate-100 bg-white p-5 shadow-sm transition-all duration-500 ease-out hover:-translate-y-0.5 hover:shadow-md hover:border-indigo-200"
               >
                 <div className="flex items-center gap-4">
