@@ -33,7 +33,7 @@ export default function ProjectPoster({
     <div className="relative w-full aspect-4/5 rounded-xl overflow-hidden bg-[#c1d0ff] p-6 flex flex-col justify-between text-left select-none border border-slate-300/40 text-black shadow-md">
       <div className="relative z-1 flex flex-col gap-1">
         <div className="w-[2898px] h-[926px] justify-start text-black text-[512px] font-normal font-['NATS'] leading-[450px]">
-          2026 Low-Code AI CHALLENGE
+          2026 Low-Code AI Challenge
         </div>
         <div className="h-px w-8 bg-black/30 mt-1"></div>
       </div>
