@@ -14,9 +14,19 @@ import {
   ExternalLink,
 } from "lucide-react";
 
+function getYoutubeEmbedUrl(url) {
+  if (!url) return null;
+  const match = url.match(/youtu\.be\/([^?&]+)/);
+  if (match) return `https://www.youtube.com/embed/${match[1]}`;
+  const watchMatch = url.match(/[?&]v=([^&]+)/);
+  if (watchMatch) return `https://www.youtube.com/embed/${watchMatch[1]}`;
+  return null;
+}
+
 function ProjectDetail({ project, onBack }) {
   const titleWords = project.title.split(" ");
   const isLandscapePoster = project.posterOrientation === "landscape";
+  const embedUrl = getYoutubeEmbedUrl(project.demo?.url);
 
   const sections = [
     {
@@ -232,47 +242,49 @@ function ProjectDetail({ project, onBack }) {
               />
               데모 영상
             </h2>
-            <p className="text-sm leading-[1.7] text-(--text) break-keep wrap-normal">
-              {project.demo.description}
-            </p>
-            <div className="mt-5 flex items-center gap-2">
-              <span className="h-2 w-2 animate-pulse rounded-full bg-red-600"></span>
-              <span className="text-sm font-bold text-slate-500">
-                YouTube Embed Placeholder Mode
-              </span>
-            </div>
+            {embedUrl ? (
+              <a
+                href={project.demo.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-indigo-500 hover:text-indigo-400 transition-colors"
+              >
+                YouTube에서 보기
+                <ExternalLink className="h-3.5 w-3.5" />
+              </a>
+            ) : (
+              <div className="mt-5 flex items-center gap-2">
+                <span className="h-2 w-2 animate-pulse rounded-full bg-red-600"></span>
+                <span className="text-sm font-bold text-slate-500">
+                  데모 영상 준비 중
+                </span>
+              </div>
+            )}
           </div>
 
           <div className="group relative w-full overflow-hidden rounded-2xl border border-slate-700 bg-[#090a0f] shadow-2xl">
-            <div
-              className="relative flex aspect-video flex-col items-center justify-center gap-3.5 bg-[linear-gradient(135deg,#0c0d15_0%,#191b29_100%)] p-6 text-center text-white"
-              role="img"
-              aria-label="데모 영상 유튜브 링크가 들어갈 자리"
-            >
-              <button
-                type="button"
-                className="grid h-14 w-14 place-items-center rounded-full bg-white text-black shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer"
+            {embedUrl ? (
+              <iframe
+                className="aspect-video w-full"
+                src={embedUrl}
+                title={`${project.title} 데모 영상`}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            ) : (
+              <div
+                className="relative flex aspect-video flex-col items-center justify-center gap-3.5 bg-[linear-gradient(135deg,#0c0d15_0%,#191b29_100%)] p-6 text-center text-white"
+                role="img"
+                aria-label="데모 영상 준비 중"
               >
-                <span className="ml-1 h-0 w-0 border-y-8 border-y-transparent border-l-12 border-l-black"></span>
-              </button>
-              <strong className="text-base font-bold tracking-tight">
-                {project.demo.title}
-              </strong>
-              <small className="text-sm text-slate-400 max-w-72">
-                추후 유튜브 링크 연동 시 실시간 영상 인프라가 배포될 예정입니다.
-              </small>
-
-              <div className="absolute bottom-0 inset-x-0 bg-black/85 px-4 py-2 flex items-center gap-3 text-sm font-mono text-slate-400">
-                <span>▶</span>
-                <div className="h-1 flex-1 rounded bg-slate-700 overflow-hidden">
-                  <div className="h-full w-1/3 bg-[#c1d0ff] rounded"></div>
+                <div className="grid h-14 w-14 place-items-center rounded-full bg-white/10 text-white">
+                  <span className="ml-1 h-0 w-0 border-y-8 border-y-transparent border-l-12 border-l-white/60"></span>
                 </div>
-                <span>00:45 / 03:00</span>
-                <span>🔊</span>
-                <span>[CC]</span>
-                <span>⛶</span>
+                <strong className="text-base font-bold tracking-tight text-slate-300">
+                  데모 영상 준비 중
+                </strong>
               </div>
-            </div>
+            )}
           </div>
         </div>
       </section>
