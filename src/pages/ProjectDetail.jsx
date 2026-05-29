@@ -32,27 +32,21 @@ function ProjectDetail({ project, onBack }) {
     {
       eyebrow: "Project Introduction",
       title: "프로젝트 소개",
-      icon: (
-        <BookOpen className="h-5 w-5 text-indigo-500" />
-      ),
+      icon: <BookOpen className="h-5 w-5 text-indigo-500" />,
       body: project.intro,
       bgClass: "bg-white",
     },
     {
       eyebrow: "Problem Statement",
       title: "문제 정의",
-      icon: (
-        <AlertCircle className="h-5 w-5 text-rose-500" />
-      ),
+      icon: <AlertCircle className="h-5 w-5 text-rose-500" />,
       body: project.problem,
       bgClass: "bg-white",
     },
     {
       eyebrow: "Proposed Solution",
       title: "해결 방안",
-      icon: (
-        <Sparkles className="h-5 w-5 text-emerald-500" />
-      ),
+      icon: <Sparkles className="h-5 w-5 text-emerald-500" />,
       body: project.solution,
       bgClass: "bg-white",
     },
@@ -230,7 +224,7 @@ function ProjectDetail({ project, onBack }) {
         <div className="mx-auto grid w-full max-w-(--layout-max-width) grid-cols-1 items-center gap-8 px-5 min-[561px]:px-8 min-[901px]:grid-cols-[0.8fr_1.2fr] min-[901px]:px-10">
           <div>
             <span className="text-sm font-bold tracking-wider text-indigo-500 uppercase">
-              Interactive Demo
+              Demo Video
             </span>
             <h2
               id="demo-title"
@@ -340,7 +334,7 @@ function ProjectDetail({ project, onBack }) {
       >
         <div className="mx-auto w-full max-w-(--layout-max-width) px-5 min-[561px]:px-8 min-[901px]:px-10">
           <span className="text-sm font-bold tracking-wider text-indigo-500 uppercase">
-            Reference Materials
+            Project Materials
           </span>
           <h2
             id="references-title"
@@ -365,7 +359,7 @@ function ProjectDetail({ project, onBack }) {
                 </span>
                 <div>
                   <h3 className="m-0 text-md font-bold text-(--text-h) transition-colors duration-500 ease-out group-hover:text-indigo-500">
-                    PPT 발표 자료
+                    발표 자료
                   </h3>
                 </div>
               </div>
@@ -384,7 +378,7 @@ function ProjectDetail({ project, onBack }) {
                 </span>
                 <div>
                   <h3 className="m-0 text-md font-bold text-(--text-h) transition-colors duration-500 ease-out group-hover:text-indigo-500">
-                    서비스 배포 링크
+                    서비스 링크
                   </h3>
                 </div>
               </div>

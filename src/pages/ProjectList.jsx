@@ -16,7 +16,7 @@ function ProjectList({ projects, onSelectProject }) {
       <section className="full-bleed relative overflow-hidden border-b border-(--border) bg-[#c1d0ff] text-black pt-18 pb-10 min-[561px]:pt-24 min-[561px]:pb-14 min-[901px]:pt-30 min-[901px]:pb-16 flex flex-col justify-center select-none">
         <div className="relative z-10 mx-auto flex w-full max-w-(--layout-max-width) flex-col items-start gap-5 px-5 min-[561px]:px-8 min-[901px]:px-10">
           <h1 className="m-0 max-w-250 text-[clamp(2.1rem,6.2vw,4.75rem)] font-black tracking-tighter text-black leading-[1.08] font-nats [word-break:keep-all] [overflow-wrap:normal]">
-            2026 Low-Code AI CHALLENGE
+            2026 Low-Code AI Challenge
           </h1>
 
           <p className="text-base min-[901px]:text-lg leading-[1.7] text-slate-800 font-medium word-break-keep-all">
